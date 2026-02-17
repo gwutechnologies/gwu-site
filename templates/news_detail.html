@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}{{article.title}} – GWU Technologies{% endblock %}
+{% block content %}
+<div style="padding-top:5rem;background:var(--off-white);min-height:100vh">
+  <article style="max-width:860px;margin:0 auto;padding:4rem 2rem">
+    <a href="/news" style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--red);font-weight:600;text-decoration:none;margin-bottom:2rem;font-size:0.9rem">← Back to News</a>
+    <div class="news-meta" style="margin-bottom:1rem">
+      <span class="news-date">{{article.created_at[:10]}}</span>
+      <span class="news-tag">{{article.category}}</span>
+    </div>
+    <div style="font-size:3.5rem;margin-bottom:1rem">{{article.emoji}}</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:1.5rem;letter-spacing:-1px">{{article.title}}</h1>
+    <p style="font-size:1.1rem;color:var(--gray);margin-bottom:2.5rem;line-height:1.7;border-left:3px solid var(--red);padding-left:1rem">{{article.excerpt}}</p>
+    <div class="article-body" style="font-size:1rem;color:#4B3540;line-height:1.9">{{article.content|safe}}</div>
+    {% if related %}
+    <div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border-color,#f0e8ea)">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:2rem;color:var(--dark)">More Updates</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+        {% for r in related %}
+        <a href="/news/{{r.slug}}" style="text-decoration:none">
+          <div class="news-card" style="border:1px solid #f0e8ea">
+            <div class="news-card-body"><div class="news-meta"><span class="news-date">{{r.created_at[:10]}}</span><span class="news-tag">{{r.category}}</span></div><h3 style="font-size:1rem">{{r.title}}</h3></div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </article>
+</div>
+{% endblock %}

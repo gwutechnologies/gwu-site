@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{action}} Article – GWU Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--red:#C8102E;--dark:#1A0A0E}
+body{font-family:'DM Sans',sans-serif;background:#f5f0f0;min-height:100vh}
+.bar{background:var(--dark);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.bar-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:white}.bar-logo span{color:var(--red)}
+.bar-back{color:rgba(255,255,255,.6);text-decoration:none;font-size:.875rem}
+.bar-back:hover{color:white}
+.wrap{max-width:860px;margin:3rem auto;padding:0 2rem}
+.card{background:white;border-radius:16px;padding:2.5rem;border:1px solid #f0e8ea}
+.card h1{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--dark);margin-bottom:.25rem}
+.card .sub{color:#9CA3AF;font-size:.875rem;margin-bottom:2rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.fg{margin-bottom:1.5rem}
+.fg label{display:block;font-size:.8rem;font-weight:600;color:var(--dark);margin-bottom:.4rem}
+.fg input,.fg select,.fg textarea{width:100%;padding:.875rem 1rem;border:1.5px solid #f0e8ea;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--dark);background:#fdf8f8;transition:border-color .3s;outline:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.08)}
+.fg textarea{resize:vertical;min-height:300px;line-height:1.7}
+.hint{font-size:.75rem;color:#9CA3AF;margin-top:.3rem;line-height:1.6}
+.emojis{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.em{font-size:1.5rem;cursor:pointer;padding:.25rem;border-radius:6px;border:2px solid transparent;transition:border-color .2s}
+.em:hover,.em.on{border-color:var(--red)}
+.ptoggle{display:flex;align-items:center;gap:.75rem;padding:1rem;background:#fdf8f8;border-radius:8px;border:1.5px solid #f0e8ea;margin-bottom:2rem}
+.ptoggle label{font-size:.9rem;font-weight:500;color:var(--dark);cursor:pointer}
+.actions{display:flex;gap:1rem;justify-content:flex-end;padding-top:1.5rem;border-top:1px solid #f0e8ea}
+.btn-red{background:var(--red);color:white;padding:.875rem 2rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;border:none;cursor:pointer;transition:background .3s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+.btn-red:hover{background:#9B0E24}
+.btn-ghost{background:white;color:var(--dark);padding:.875rem 2rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;border:1.5px solid #e5e5e5;cursor:pointer;transition:all .3s;text-decoration:none}
+.btn-ghost:hover{border-color:var(--red);color:var(--red)}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="bar-logo">GWU<span>.</span> Admin</div>
+  <a href="/admin" class="bar-back">← Back to Dashboard</a>
+</div>
+<div class="wrap">
+  <div class="card">
+    <h1>{{action}} Article</h1>
+    <div class="sub">Fill in the details below to {% if action == 'New' %}publish a new{% else %}update this{% endif %} news article.</div>
+    <form method="POST">
+      <div class="fg"><label>Article Title *</label><input type="text" name="title" value="{{article.title if article else ''}}" placeholder="e.g. GWU Technologies Launches New Partnership" required></div>
+      <div class="row">
+        <div class="fg"><label>Category</label>
+          <select name="category">
+            {% for cat in ['Company','Product Launch','Milestone','Partnership','Technology','Event'] %}
+            <option value="{{cat}}" {{'selected' if article and article.category == cat}}>{{cat}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="fg"><label>Card Theme</label>
+          <select name="theme">
+            <option value="dark1" {{'selected' if article and article.theme == 'dark1'}}>Dark Blue</option>
+            <option value="red" {{'selected' if article and article.theme == 'red'}}>Red</option>
+            <option value="dark2" {{'selected' if article and article.theme == 'dark2'}}>Dark Navy</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Emoji Icon</label>
+        <input type="text" name="emoji" id="ei" value="{{article.emoji if article else ''}}" placeholder="📰" maxlength="4" style="font-size:1.5rem;width:80px">
+        <div class="emojis">
+          {% for e in ['📰','🚀','🏢','🤖','💻','🎓','🏆','🔬','💡','🌟','🤝','📊','🔍','⚡','🎯','🛡️','🌐','📡'] %}
+          <span class="em" onclick="document.getElementById('ei').value='{{e}}';this.parentElement.querySelectorAll('.em').forEach(x=>x.classList.remove('on'));this.classList.add('on')">{{e}}</span>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="fg"><label>Short Excerpt * (shown on cards)</label><textarea name="excerpt" style="min-height:80px" placeholder="A brief 1-2 sentence summary..." required>{{article.excerpt if article else ''}}</textarea></div>
+      <div class="fg">
+        <label>Full Article Content *</label>
+        <textarea name="content" placeholder="Full article. Supports HTML: &lt;p&gt; &lt;h3&gt; &lt;ul&gt; &lt;li&gt; &lt;strong&gt; &lt;em&gt;" required>{{article.content if article else ''}}</textarea>
+        <div class="hint">HTML supported: &lt;p&gt;paragraph&lt;/p&gt; · &lt;h3&gt;heading&lt;/h3&gt; · &lt;ul&gt;&lt;li&gt;item&lt;/li&gt;&lt;/ul&gt; · &lt;strong&gt;bold&lt;/strong&gt;</div>
+      </div>
+      <div class="ptoggle">
+        <input type="checkbox" name="published" id="pc" {{'checked' if not article or article.published}} style="width:18px;height:18px;accent-color:var(--red)">
+        <label for="pc">Publish immediately (uncheck to save as draft)</label>
+      </div>
+      <div class="actions">
+        <a href="/admin" class="btn-ghost">Cancel</a>
+        <button type="submit" class="btn-red">{{action}} Article →</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body></html>

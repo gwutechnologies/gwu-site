@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}News & Updates – GWU Technologies{% endblock %}
+{% block content %}
+<div style="padding-top:7rem;background:var(--off-white);min-height:100vh">
+  <div class="section-inner" style="max-width:1300px;margin:0 auto;padding:3rem 2rem">
+    <div class="section-label" style="margin-bottom:0.5rem">All Updates</div>
+    <h2 class="section-title" style="margin-bottom:0.5rem">News &amp; <em>Milestones</em></h2>
+    <p class="section-subtitle" style="margin-bottom:3rem">Follow GWU Technologies' journey from launch to impact.</p>
+    <div class="news-grid">
+      {% for article in news %}
+      <div class="news-card reveal">
+        <a href="/news/{{article.slug}}" style="text-decoration:none">
+          <div class="news-card-img nc-{{(loop.index % 3)+1}}"><span class="news-icon">{{article.emoji}}</span></div>
+          <div class="news-card-body">
+            <div class="news-meta"><span class="news-date">{{article.created_at[:10]}}</span><span class="news-tag">{{article.category}}</span></div>
+            <h3>{{article.title}}</h3>
+            <p>{{article.excerpt}}</p>
+            <span class="news-readmore">Read More →</span>
+          </div>
+        </a>
+      </div>
+      {% else %}
+      <div style="grid-column:1/-1;text-align:center;padding:4rem;color:var(--gray)">
+        <div style="font-size:3rem;margin-bottom:1rem">📰</div>
+        <p>No news articles yet. Check back soon!</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
