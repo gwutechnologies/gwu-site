@@ -1,184 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin Dashboard – GWU Technologies</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--red:#C8102E;--dark:#1A0A0E;--sw:220px}
-body{font-family:'DM Sans',sans-serif;background:#f5f0f0;min-height:100vh;display:flex}
-.sidebar{width:var(--sw);background:var(--dark);min-height:100vh;padding:0;display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:100}
-.sb-logo{padding:1.75rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
-.sb-logo .lt{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:white}.sb-logo .lt span{color:var(--red)}
-.sb-logo .ls{font-size:.7rem;color:rgba(255,255,255,.3);margin-top:2px;letter-spacing:.1em;text-transform:uppercase}
-.sb-nav{flex:1;padding:1.5rem 0}
-.sb-lbl{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.25);padding:0 1.5rem;margin:1.25rem 0 .5rem}
-.sb-nav a{display:flex;align-items:center;gap:.75rem;padding:.75rem 1.5rem;color:rgba(255,255,255,.55);text-decoration:none;font-size:.875rem;font-weight:500;transition:all .2s}
-.sb-nav a:hover{background:rgba(200,16,46,.1);color:white;border-left:2px solid var(--red)}
-.sb-foot{padding:1.5rem;border-top:1px solid rgba(255,255,255,.06)}
-.sb-foot a{color:rgba(255,255,255,.35);font-size:.8rem;text-decoration:none}
-.sb-foot a:hover{color:var(--red)}
-.main{margin-left:var(--sw);flex:1;padding:2.5rem}
-.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.5rem}
-.topbar h1{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--dark)}
-.tb-actions{display:flex;gap:.75rem}
-.btn-red{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:white;padding:.625rem 1.25rem;border-radius:6px;text-decoration:none;font-size:.875rem;font-weight:600;border:none;cursor:pointer;transition:background .3s}
-.btn-red:hover{background:#9B0E24}
-.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:white;color:var(--dark);padding:.625rem 1.25rem;border-radius:6px;text-decoration:none;font-size:.875rem;font-weight:600;border:1px solid #e5e5e5;cursor:pointer;transition:all .3s}
-.btn-ghost:hover{border-color:var(--red);color:var(--red)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:2.5rem}
-.sc{background:white;border-radius:12px;padding:1.5rem;border:1px solid #f0e8ea}
-.sc .sn{font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:700;color:var(--dark);line-height:1}.sc .sn.red{color:var(--red)}
-.sc .sl{font-size:.75rem;color:#9CA3AF;text-transform:uppercase;letter-spacing:.08em;margin-top:.25rem}
-.sc .si{font-size:1.75rem;margin-bottom:.75rem}
-.card{background:white;border-radius:12px;border:1px solid #f0e8ea;margin-bottom:2rem;overflow:hidden}
-.card-hdr{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;border-bottom:1px solid #f0e8ea}
-.card-hdr h2{font-size:1rem;font-weight:600;color:var(--dark)}
-table{width:100%;border-collapse:collapse}
-th{text-align:left;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#9CA3AF;padding:.875rem 1.5rem;border-bottom:1px solid #f0e8ea;font-weight:600}
-td{padding:1rem 1.5rem;border-bottom:1px solid #f9f0f0;font-size:.875rem;color:#4B3540}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#fdf8f8}
-.badge{display:inline-block;padding:.2rem .65rem;border-radius:100px;font-size:.7rem;font-weight:600}
-.unread{background:#fef2f2;color:#991b1b}.read{background:#f0fdf4;color:#166534}
-.pub{background:#dbeafe;color:#1e40af}.draft{background:#f3f4f6;color:#6b7280}
-.cat{background:#fdf4ff;color:#7e22ce}
-.ab{background:none;border:none;cursor:pointer;padding:.25rem .5rem;border-radius:4px;font-size:.85rem;transition:background .2s}
-.ab:hover{background:#f5f0f0}
-.ab.d:hover{background:#fef2f2;color:var(--red)}
-.empty{text-align:center;padding:3rem;color:#9CA3AF}
-.msg-body{max-width:360px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
-.overlay.show{display:flex}
-.modal{background:white;border-radius:16px;padding:2rem;max-width:440px;width:90%}
-.modal h3{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:.5rem;color:var(--dark)}
-.modal p{color:#6b7280;font-size:.875rem;margin-bottom:1.5rem;line-height:1.6}
-.modal-foot{display:flex;gap:.75rem;justify-content:flex-end}
-.flash-ok{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;padding:.875rem;border-radius:8px;margin-bottom:1.5rem;font-size:.875rem}
-</style>
-</head>
-<body>
-<aside class="sidebar">
-  <div class="sb-logo"><div class="lt">GWU<span>.</span></div><div class="ls">Admin Panel</div></div>
-  <nav class="sb-nav">
-    <div class="sb-lbl">Overview</div>
-    <a href="/admin">📊 Dashboard</a>
-    <div class="sb-lbl">Content</div>
-    <a href="/admin/news/new">✏️ New Article</a>
-    <a href="#news-section">📰 Manage News</a>
-    <div class="sb-lbl">Enquiries</div>
-    <a href="#msg-section">💬 Messages {% if unread > 0 %}<span style="background:var(--red);color:white;border-radius:100px;font-size:.65rem;padding:.1rem .45rem;margin-left:auto">{{unread}}</span>{% endif %}</a>
-    <div class="sb-lbl">Settings</div>
-    <a href="#" onclick="document.getElementById('pwModal').classList.add('show');return false">🔑 Change Password</a>
-    <a href="/" target="_blank">🌐 View Website</a>
-  </nav>
-  <div class="sb-foot"><a href="/admin/logout">⬅ Logout ({{session.admin_user}})</a></div>
-</aside>
 
-<main class="main">
-  <div class="topbar">
-    <h1>Dashboard</h1>
-    <div class="tb-actions">
-      <a href="/admin/news/new" class="btn-red">+ New Article</a>
-      <a href="/" target="_blank" class="btn-ghost">View Site ↗</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Dashboard – GWU Technologies</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/GWU LOGObgr.png') }}">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --red: #C8102E;
+      --dark: #1A0A0E;
+      --sw: 220px
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f5f0f0;
+      min-height: 100vh;
+      display: flex
+    }
+
+    .sidebar {
+      width: var(--sw);
+      background: var(--dark);
+      min-height: 100vh;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 100
+    }
+
+    .sb-logo {
+      padding: 1.75rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .sb-logo .lt {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: white
+    }
+
+    .sb-logo .lt span {
+      color: var(--red)
+    }
+
+    .sb-logo .lt img {
+      height: 40px;
+      width: auto;
+      display: block
+    }
+
+    .sb-logo .ls {
+      font-size: .7rem;
+      color: rgba(255, 255, 255, .3);
+      margin-top: 2px;
+      letter-spacing: .1em;
+      text-transform: uppercase
+    }
+
+    .sb-nav {
+      flex: 1;
+      padding: 1.5rem 0
+    }
+
+    .sb-lbl {
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .25);
+      padding: 0 1.5rem;
+      margin: 1.25rem 0 .5rem
+    }
+
+    .sb-nav a {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .75rem 1.5rem;
+      color: rgba(255, 255, 255, .55);
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 500;
+      transition: all .2s
+    }
+
+    .sb-nav a:hover {
+      background: rgba(200, 16, 46, .1);
+      color: white;
+      border-left: 2px solid var(--red)
+    }
+
+    .sb-foot {
+      padding: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .sb-foot a {
+      color: rgba(255, 255, 255, .35);
+      font-size: .8rem;
+      text-decoration: none
+    }
+
+    .sb-foot a:hover {
+      color: var(--red)
+    }
+
+    .main {
+      margin-left: var(--sw);
+      flex: 1;
+      padding: 2.5rem
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem
+    }
+
+    .topbar h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--dark)
+    }
+
+    .tb-actions {
+      display: flex;
+      gap: .75rem
+    }
+
+    .btn-red {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--red);
+      color: white;
+      padding: .625rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background .3s
+    }
+
+    .btn-red:hover {
+      background: #9B0E24
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: white;
+      color: var(--dark);
+      padding: .625rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 600;
+      border: 1px solid #e5e5e5;
+      cursor: pointer;
+      transition: all .3s
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--red);
+      color: var(--red)
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2.5rem
+    }
+
+    .sc {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #f0e8ea
+    }
+
+    .sc .sn {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1
+    }
+
+    .sc .sn.red {
+      color: var(--red)
+    }
+
+    .sc .sl {
+      font-size: .75rem;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-top: .25rem
+    }
+
+    .sc .si {
+      font-size: 1.75rem;
+      margin-bottom: .75rem
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #f0e8ea;
+      margin-bottom: 2rem;
+      overflow: hidden
+    }
+
+    .card-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid #f0e8ea
+    }
+
+    .card-hdr h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark)
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse
+    }
+
+    th {
+      text-align: left;
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #9CA3AF;
+      padding: .875rem 1.5rem;
+      border-bottom: 1px solid #f0e8ea;
+      font-weight: 600
+    }
+
+    td {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #f9f0f0;
+      font-size: .875rem;
+      color: #4B3540
+    }
+
+    tr:last-child td {
+      border-bottom: none
+    }
+
+    tr:hover td {
+      background: #fdf8f8
+    }
+
+    .badge {
+      display: inline-block;
+      padding: .2rem .65rem;
+      border-radius: 100px;
+      font-size: .7rem;
+      font-weight: 600
+    }
+
+    .unread {
+      background: #fef2f2;
+      color: #991b1b
+    }
+
+    .read {
+      background: #f0fdf4;
+      color: #166534
+    }
+
+    .pub {
+      background: #dbeafe;
+      color: #1e40af
+    }
+
+    .draft {
+      background: #f3f4f6;
+      color: #6b7280
+    }
+
+    .cat {
+      background: #fdf4ff;
+      color: #7e22ce
+    }
+
+    .ab {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .25rem .5rem;
+      border-radius: 4px;
+      font-size: .85rem;
+      transition: background .2s
+    }
+
+    .ab:hover {
+      background: #f5f0f0
+    }
+
+    .ab.d:hover {
+      background: #fef2f2;
+      color: var(--red)
+    }
+
+    .empty {
+      text-align: center;
+      padding: 3rem;
+      color: #9CA3AF
+    }
+
+    .msg-body {
+      max-width: 360px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center
+    }
+
+    .overlay.show {
+      display: flex
+    }
+
+    .modal {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 440px;
+      width: 90%
+    }
+
+    .modal h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: .5rem;
+      color: var(--dark)
+    }
+
+    .modal p {
+      color: #6b7280;
+      font-size: .875rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6
+    }
+
+    .modal-foot {
+      display: flex;
+      gap: .75rem;
+      justify-content: flex-end
+    }
+
+    .flash-ok {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      padding: .875rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: .875rem
+    }
+  </style>
+</head>
+
+<body>
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <div class="lt"><img src="{{ url_for('static', filename='assets/GWU LOGO Wbgr.png') }}" alt="GWU Technologies">
+      </div>
+      <div class="ls">Admin Panel</div>
+    </div>
+    <nav class="sb-nav">
+      <div class="sb-lbl">Overview</div>
+      <a href="/admin">📊 Dashboard</a>
+      <div class="sb-lbl">Content</div>
+      <a href="/admin/news/new">✏️ New Article</a>
+      <a href="#news-section">📰 Manage News</a>
+      <div class="sb-lbl">Enquiries</div>
+      <a href="#msg-section">💬 Messages {% if unread > 0 %}<span
+          style="background:var(--red);color:white;border-radius:100px;font-size:.65rem;padding:.1rem .45rem;margin-left:auto">{{unread}}</span>{%
+        endif %}</a>
+      <div class="sb-lbl">Settings</div>
+      <a href="#" onclick="document.getElementById('pwModal').classList.add('show');return false">🔑 Change Password</a>
+      <a href="/" target="_blank">🌐 View Website</a>
+    </nav>
+    <div class="sb-foot"><a href="/admin/logout">⬅ Logout ({{session.admin_user}})</a></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1>Dashboard</h1>
+      <div class="tb-actions">
+        <a href="/admin/news/new" class="btn-red">+ New Article</a>
+        <a href="/" target="_blank" class="btn-ghost">View Site ↗</a>
+      </div>
+    </div>
+    {% with messages = get_flashed_messages() %}{% if messages %}<div class="flash-ok">{{ messages[0] }}</div>{% endif
+    %}{% endwith %}
+    <div class="stats">
+      <div class="sc">
+        <div class="si">💬</div>
+        <div class="sn">{{total_msg}}</div>
+        <div class="sl">Total Messages</div>
+      </div>
+      <div class="sc">
+        <div class="si">🔴</div>
+        <div class="sn red">{{unread}}</div>
+        <div class="sl">Unread</div>
+      </div>
+      <div class="sc">
+        <div class="si">📰</div>
+        <div class="sn">{{total_news}}</div>
+        <div class="sl">News Articles</div>
+      </div>
+      <div class="sc">
+        <div class="si">🚀</div>
+        <div class="sn">2026</div>
+        <div class="sl">Founded</div>
+      </div>
+    </div>
+
+    <div class="card" id="news-section">
+      <div class="card-hdr">
+        <h2>📰 News Articles</h2><a href="/admin/news/new" class="btn-red" style="font-size:.8rem;padding:.5rem 1rem">+
+          New</a>
+      </div>
+      {% if news %}
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>{% for a in news %}
+          <tr id="nr-{{a.id}}">
+            <td><strong>{{a.emoji}} {{a.title[:55]}}{% if a.title|length > 55 %}...{% endif %}</strong></td>
+            <td><span class="badge cat">{{a.category}}</span></td>
+            <td><span class="badge {{'pub' if a.published else 'draft'}}" id="st-{{a.id}}">{{'Published' if a.published
+                else 'Draft'}}</span></td>
+            <td>{{a.created_at[:10]}}</td>
+            <td>
+              <a href="/admin/news/{{a.id}}/edit" class="ab" title="Edit">✏️</a>
+              <button class="ab" onclick="toggleNews({{a.id}})" title="Toggle">👁️</button>
+              <a href="/news/{{a.slug}}" target="_blank" class="ab" title="View">🔗</a>
+              <button class="ab d" onclick="delNews({{a.id}},'{{a.title[:30]|e}}')" title="Delete">🗑️</button>
+            </td>
+          </tr>{% endfor %}
+        </tbody>
+      </table>
+      {% else %}<div class="empty">
+        <div style="font-size:2.5rem;margin-bottom:.75rem">📰</div>
+        <p>No articles yet. <a href="/admin/news/new" style="color:var(--red)">Create your first one!</a></p>
+      </div>{% endif %}
+    </div>
+
+    <div class="card" id="msg-section">
+      <div class="card-hdr">
+        <h2>💬 Contact Messages {% if unread > 0 %}<span class="badge unread" style="margin-left:.5rem">{{unread}}
+            new</span>{% endif %}</h2>
+      </div>
+      {% if messages %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Interest</th>
+            <th>Message</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Act</th>
+          </tr>
+        </thead>
+        <tbody>{% for m in messages %}
+          <tr id="mr-{{m.id}}" style="{{'background:#fffbfb' if m.status=='unread' else ''}}">
+            <td><strong>{{m.first_name}} {{m.last_name}}</strong></td>
+            <td><a href="mailto:{{m.email}}" style="color:var(--red);text-decoration:none">{{m.email}}</a></td>
+            <td>{{m.interest or '—'}}</td>
+            <td class="msg-body">{{m.message}}</td>
+            <td><span class="badge {{'unread' if m.status=='unread' else 'read'}}"
+                id="ms-{{m.id}}">{{m.status|title}}</span></td>
+            <td>{{m.created_at[:10]}}</td>
+            <td>
+              {% if m.status=='unread' %}<button class="ab" onclick="markRead({{m.id}})" title="Mark read">✅</button>{%
+              endif %}
+              <a href="mailto:{{m.email}}?subject=Re: {{m.interest or 'Your Enquiry'}}" class="ab" title="Reply">📧</a>
+              <button class="ab d" onclick="delMsg({{m.id}})" title="Delete">🗑️</button>
+            </td>
+          </tr>{% endfor %}
+        </tbody>
+      </table>
+      {% else %}<div class="empty">
+        <div style="font-size:2.5rem;margin-bottom:.75rem">📭</div>
+        <p>No messages yet. Your contact form is ready!</p>
+      </div>{% endif %}
+    </div>
+  </main>
+
+  <div class="overlay" id="delNewsModal">
+    <div class="modal">
+      <h3>Delete Article?</h3>
+      <p id="delNewsText">This cannot be undone.</p>
+      <div class="modal-foot"><button class="btn-ghost" onclick="closeModal('delNewsModal')">Cancel</button><button
+          class="btn-red" id="delNewsBtn">Delete</button></div>
     </div>
   </div>
-  {% with messages = get_flashed_messages() %}{% if messages %}<div class="flash-ok">{{ messages[0] }}</div>{% endif %}{% endwith %}
-  <div class="stats">
-    <div class="sc"><div class="si">💬</div><div class="sn">{{total_msg}}</div><div class="sl">Total Messages</div></div>
-    <div class="sc"><div class="si">🔴</div><div class="sn red">{{unread}}</div><div class="sl">Unread</div></div>
-    <div class="sc"><div class="si">📰</div><div class="sn">{{total_news}}</div><div class="sl">News Articles</div></div>
-    <div class="sc"><div class="si">🚀</div><div class="sn">2026</div><div class="sl">Founded</div></div>
+  <div class="overlay" id="delMsgModal">
+    <div class="modal">
+      <h3>Delete Message?</h3>
+      <p>Permanently remove this contact message.</p>
+      <div class="modal-foot"><button class="btn-ghost" onclick="closeModal('delMsgModal')">Cancel</button><button
+          class="btn-red" id="delMsgBtn">Delete</button></div>
+    </div>
+  </div>
+  <div class="overlay" id="pwModal">
+    <div class="modal">
+      <h3>Change Password</h3>
+      <form method="POST" action="/admin/change-password">
+        <div style="margin-bottom:1rem"><label
+            style="font-size:.8rem;font-weight:600;display:block;margin-bottom:.3rem">Current Password</label><input
+            type="password" name="current_password" required
+            style="width:100%;padding:.75rem;border:1.5px solid #f0e8ea;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none">
+        </div>
+        <div style="margin-bottom:1rem"><label
+            style="font-size:.8rem;font-weight:600;display:block;margin-bottom:.3rem">New Password</label><input
+            type="password" name="new_password" required
+            style="width:100%;padding:.75rem;border:1.5px solid #f0e8ea;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none">
+        </div>
+        <div style="margin-bottom:1.5rem"><label
+            style="font-size:.8rem;font-weight:600;display:block;margin-bottom:.3rem">Confirm</label><input
+            type="password" name="confirm_password" required
+            style="width:100%;padding:.75rem;border:1.5px solid #f0e8ea;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none">
+        </div>
+        <div class="modal-foot"><button type="button" class="btn-ghost"
+            onclick="closeModal('pwModal')">Cancel</button><button type="submit" class="btn-red">Update</button></div>
+      </form>
+    </div>
   </div>
 
-  <div class="card" id="news-section">
-    <div class="card-hdr"><h2>📰 News Articles</h2><a href="/admin/news/new" class="btn-red" style="font-size:.8rem;padding:.5rem 1rem">+ New</a></div>
-    {% if news %}
-    <table><thead><tr><th>Title</th><th>Category</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
-    <tbody>{% for a in news %}
-    <tr id="nr-{{a.id}}">
-      <td><strong>{{a.emoji}} {{a.title[:55]}}{% if a.title|length > 55 %}...{% endif %}</strong></td>
-      <td><span class="badge cat">{{a.category}}</span></td>
-      <td><span class="badge {{'pub' if a.published else 'draft'}}" id="st-{{a.id}}">{{'Published' if a.published else 'Draft'}}</span></td>
-      <td>{{a.created_at[:10]}}</td>
-      <td>
-        <a href="/admin/news/{{a.id}}/edit" class="ab" title="Edit">✏️</a>
-        <button class="ab" onclick="toggleNews({{a.id}})" title="Toggle">👁️</button>
-        <a href="/news/{{a.slug}}" target="_blank" class="ab" title="View">🔗</a>
-        <button class="ab d" onclick="delNews({{a.id}},'{{a.title[:30]|e}}')" title="Delete">🗑️</button>
-      </td>
-    </tr>{% endfor %}</tbody></table>
-    {% else %}<div class="empty"><div style="font-size:2.5rem;margin-bottom:.75rem">📰</div><p>No articles yet. <a href="/admin/news/new" style="color:var(--red)">Create your first one!</a></p></div>{% endif %}
-  </div>
-
-  <div class="card" id="msg-section">
-    <div class="card-hdr"><h2>💬 Contact Messages {% if unread > 0 %}<span class="badge unread" style="margin-left:.5rem">{{unread}} new</span>{% endif %}</h2></div>
-    {% if messages %}
-    <table><thead><tr><th>Name</th><th>Email</th><th>Interest</th><th>Message</th><th>Status</th><th>Date</th><th>Act</th></tr></thead>
-    <tbody>{% for m in messages %}
-    <tr id="mr-{{m.id}}" style="{{'background:#fffbfb' if m.status=='unread' else ''}}">
-      <td><strong>{{m.first_name}} {{m.last_name}}</strong></td>
-      <td><a href="mailto:{{m.email}}" style="color:var(--red);text-decoration:none">{{m.email}}</a></td>
-      <td>{{m.interest or '—'}}</td>
-      <td class="msg-body">{{m.message}}</td>
-      <td><span class="badge {{'unread' if m.status=='unread' else 'read'}}" id="ms-{{m.id}}">{{m.status|title}}</span></td>
-      <td>{{m.created_at[:10]}}</td>
-      <td>
-        {% if m.status=='unread' %}<button class="ab" onclick="markRead({{m.id}})" title="Mark read">✅</button>{% endif %}
-        <a href="mailto:{{m.email}}?subject=Re: {{m.interest or 'Your Enquiry'}}" class="ab" title="Reply">📧</a>
-        <button class="ab d" onclick="delMsg({{m.id}})" title="Delete">🗑️</button>
-      </td>
-    </tr>{% endfor %}</tbody></table>
-    {% else %}<div class="empty"><div style="font-size:2.5rem;margin-bottom:.75rem">📭</div><p>No messages yet. Your contact form is ready!</p></div>{% endif %}
-  </div>
-</main>
-
-<div class="overlay" id="delNewsModal">
-  <div class="modal"><h3>Delete Article?</h3><p id="delNewsText">This cannot be undone.</p>
-  <div class="modal-foot"><button class="btn-ghost" onclick="closeModal('delNewsModal')">Cancel</button><button class="btn-red" id="delNewsBtn">Delete</button></div></div>
-</div>
-<div class="overlay" id="delMsgModal">
-  <div class="modal"><h3>Delete Message?</h3><p>Permanently remove this contact message.</p>
-  <div class="modal-foot"><button class="btn-ghost" onclick="closeModal('delMsgModal')">Cancel</button><button class="btn-red" id="delMsgBtn">Delete</button></div></div>
-</div>
-<div class="overlay" id="pwModal">
-  <div class="modal"><h3>Change Password</h3>
-  <form method="POST" action="/admin/change-password">
-    <div style="margin-bottom:1rem"><label style="font-size:.8rem;font-weight:600;display:block;margin-bottom:.3rem">Current Password</label><input type="password" name="current_password" required style="width:100%;padding:.75rem;border:1.5px solid #f0e8ea;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none"></div>
-    <div style="margin-bottom:1rem"><label style="font-size:.8rem;font-weight:600;display:block;margin-bottom:.3rem">New Password</label><input type="password" name="new_password" required style="width:100%;padding:.75rem;border:1.5px solid #f0e8ea;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none"></div>
-    <div style="margin-bottom:1.5rem"><label style="font-size:.8rem;font-weight:600;display:block;margin-bottom:.3rem">Confirm</label><input type="password" name="confirm_password" required style="width:100%;padding:.75rem;border:1.5px solid #f0e8ea;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none"></div>
-    <div class="modal-foot"><button type="button" class="btn-ghost" onclick="closeModal('pwModal')">Cancel</button><button type="submit" class="btn-red">Update</button></div>
-  </form></div>
-</div>
-
-<script>
-function closeModal(id){document.getElementById(id).classList.remove('show')}
-document.querySelectorAll('.overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show')}));
-function markRead(id){
-  fetch('/admin/message/'+id+'/read',{method:'POST'}).then(r=>r.json()).then(d=>{
-    if(d.success){
-      const s=document.getElementById('ms-'+id);s.textContent='Read';s.className='badge read';
-      document.getElementById('mr-'+id).style.background='';
-      document.querySelector('[onclick="markRead('+id+')"]')?.remove();
+  <script>
+    function closeModal(id) { document.getElementById(id).classList.remove('show') }
+    document.querySelectorAll('.overlay').forEach(m => m.addEventListener('click', e => { if (e.target === m) m.classList.remove('show') }));
+    function markRead(id) {
+      fetch('/admin/message/' + id + '/read', { method: 'POST' }).then(r => r.json()).then(d => {
+        if (d.success) {
+          const s = document.getElementById('ms-' + id); s.textContent = 'Read'; s.className = 'badge read';
+          document.getElementById('mr-' + id).style.background = '';
+          document.querySelector('[onclick="markRead(' + id + ')"]')?.remove();
+        }
+      });
     }
-  });
-}
-function toggleNews(id){
-  fetch('/admin/news/'+id+'/toggle',{method:'POST'}).then(r=>r.json()).then(d=>{
-    if(d.success){const e=document.getElementById('st-'+id);e.textContent=d.published?'Published':'Draft';e.className='badge '+(d.published?'pub':'draft');}
-  });
-}
-let pendNewsId=null,pendMsgId=null;
-function delNews(id,t){pendNewsId=id;document.getElementById('delNewsText').textContent='Delete "'+t+'..."? Cannot be undone.';document.getElementById('delNewsModal').classList.add('show');}
-document.getElementById('delNewsBtn').onclick=()=>{
-  if(!pendNewsId)return;
-  fetch('/admin/news/'+pendNewsId+'/delete',{method:'POST'}).then(r=>r.json()).then(d=>{if(d.success){document.getElementById('nr-'+pendNewsId).remove();closeModal('delNewsModal');}});
-};
-function delMsg(id){pendMsgId=id;document.getElementById('delMsgModal').classList.add('show');}
-document.getElementById('delMsgBtn').onclick=()=>{
-  if(!pendMsgId)return;
-  fetch('/admin/message/'+pendMsgId+'/delete',{method:'POST'}).then(r=>r.json()).then(d=>{if(d.success){document.getElementById('mr-'+pendMsgId).remove();closeModal('delMsgModal');}});
-};
-</script>
-</body></html>
+    function toggleNews(id) {
+      fetch('/admin/news/' + id + '/toggle', { method: 'POST' }).then(r => r.json()).then(d => {
+        if (d.success) { const e = document.getElementById('st-' + id); e.textContent = d.published ? 'Published' : 'Draft'; e.className = 'badge ' + (d.published ? 'pub' : 'draft'); }
+      });
+    }
+    let pendNewsId = null, pendMsgId = null;
+    function delNews(id, t) { pendNewsId = id; document.getElementById('delNewsText').textContent = 'Delete "' + t + '..."? Cannot be undone.'; document.getElementById('delNewsModal').classList.add('show'); }
+    document.getElementById('delNewsBtn').onclick = () => {
+      if (!pendNewsId) return;
+      fetch('/admin/news/' + pendNewsId + '/delete', { method: 'POST' }).then(r => r.json()).then(d => { if (d.success) { document.getElementById('nr-' + pendNewsId).remove(); closeModal('delNewsModal'); } });
+    };
+    function delMsg(id) { pendMsgId = id; document.getElementById('delMsgModal').classList.add('show'); }
+    document.getElementById('delMsgBtn').onclick = () => {
+      if (!pendMsgId) return;
+      fetch('/admin/message/' + pendMsgId + '/delete', { method: 'POST' }).then(r => r.json()).then(d => { if (d.success) { document.getElementById('mr-' + pendMsgId).remove(); closeModal('delMsgModal'); } });
+    };
+  </script>
+</body>
+
+</html>

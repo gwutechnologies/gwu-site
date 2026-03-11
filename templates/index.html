@@ -1,44 +1,66 @@
 {% extends 'base.html' %}
 {% block loader %}
 <div class="loader" id="loader">
-  <div class="loader-logo">GWU<span>.</span></div>
-  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <div class="loader-logo"><img src="{{ url_for('static', filename='assets/GWU LOGO Wbgr.png') }}"
+      alt="GWU Technologies"></div>
+  <div class="loader-bar">
+    <div class="loader-bar-fill"></div>
+  </div>
 </div>
 {% endblock %}
 {% block content %}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-pattern"></div><div class="hero-grid"></div>
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Registered MSME · UDYAM-TN-03-0309835</div>
     <h1>Intelligent Vision.<br><em>Powered by AI.</em></h1>
-    <p class="hero-desc">GWU Technologies delivers human-in-the-loop AI inspection systems, machine vision accessories, and bespoke software solutions that transform industries.</p>
+    <p class="hero-desc">GWU Technologies delivers human-in-the-loop AI inspection systems, machine vision accessories,
+      and bespoke software solutions that transform industries.</p>
     <div class="hero-actions">
       <a href="#products" class="btn-primary"><span>Explore AI Inspector</span><span>→</span></a>
       <a href="#contact" class="btn-outline"><span>Get in Touch</span></a>
     </div>
     <div class="hero-stats">
-      <div class="stat-item"><div class="stat-number">3<span>+</span></div><div class="stat-label">Team Members</div></div>
-      <div class="stat-item"><div class="stat-number">10<span>+</span></div><div class="stat-label">NIC Sectors</div></div>
-      <div class="stat-item"><div class="stat-number">1<span>st</span></div><div class="stat-label">AI Inspection Product</div></div>
+      <div class="stat-item">
+        <div class="stat-number">3<span>+</span></div>
+        <div class="stat-label">Team Members</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10<span>+</span></div>
+        <div class="stat-label">NIC Sectors</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1<span>st</span></div>
+        <div class="stat-label">AI Inspection Product</div>
+      </div>
     </div>
   </div>
   <div class="hero-floating-card">
     <div class="floating-card-label">Flagship Product</div>
     <div class="floating-card-title">AI Inspector</div>
-    <div class="floating-card-text">Train · Test · Deploy your own inspection models with zero ML expertise required.</div>
+    <div class="floating-card-text">Train · Test · Deploy your own inspection models with zero ML expertise required.
+    </div>
     <span class="floating-card-tag">Human-in-the-Loop ✦</span>
   </div>
-  <div class="hero-scroll"><div class="hero-scroll-line"></div>Scroll</div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>Scroll
+  </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-wrap"><div class="marquee-track">
-  {% for item in ['AI-Based Inspection Systems','Human-in-the-Loop Technology','Machine Vision Solutions','Software Development','Virtual Education','AI Inspector Platform','Coimbatore, Tamil Nadu','AI-Based Inspection Systems','Human-in-the-Loop Technology','Machine Vision Solutions','Software Development','Virtual Education','AI Inspector Platform','Coimbatore, Tamil Nadu'] %}
-  <span class="marquee-item"><span class="marquee-dot"></span>{{item}}</span>
-  {% endfor %}
-</div></div>
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    {% for item in ['AI-Based Inspection Systems','Human-in-the-Loop Technology','Machine Vision Solutions','Software
+    Development','Virtual Education','AI Inspector Platform','Coimbatore, Tamil Nadu','AI-Based Inspection
+    Systems','Human-in-the-Loop Technology','Machine Vision Solutions','Software Development','Virtual Education','AI
+    Inspector Platform','Coimbatore, Tamil Nadu'] %}
+    <span class="marquee-item"><span class="marquee-dot"></span>{{item}}</span>
+    {% endfor %}
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section class="section about" id="about">
@@ -46,7 +68,9 @@
     <div style="max-width:600px">
       <div class="section-label reveal">Our Story</div>
       <h2 class="section-title reveal">Built on <em>Love,</em><br>Guided by Wisdom</h2>
-      <p class="section-subtitle reveal">GWU Technologies is a pioneering AI company incubated at Sri Ramakrishna Institute of Technology, Coimbatore — building intelligent systems that empower industries with human oversight.</p>
+      <p class="section-subtitle reveal">GWU Technologies is a pioneering AI company incubated at Sri Ramakrishna
+        Institute of Technology, Coimbatore — building intelligent systems that empower industries with human oversight.
+      </p>
     </div>
     <div class="about-grid">
       <div class="about-visual reveal">
@@ -54,18 +78,43 @@
           <div class="about-card-main-text">
             <div class="big-number">2026</div>
             <h3>Founded with Purpose</h3>
-            <p>Incorporated on 26 Jan 2026 at the SISH Incubation Center, SRIT — with a mission to democratize industrial AI.</p>
+            <p>Incorporated on 26 Jan 2026 at the SISH Incubation Center, SRIT — with a mission to democratize
+              industrial AI.</p>
           </div>
         </div>
-        <div class="about-card-accent"><div class="accent-number">MSME</div><div class="accent-label">Registered Micro Enterprise</div></div>
+        <div class="about-card-accent">
+          <div class="accent-number">MSME</div>
+          <div class="accent-label">Registered Micro Enterprise</div>
+        </div>
       </div>
       <div>
-        <p style="color:var(--gray);line-height:1.9;margin-bottom:1.5rem" class="reveal">From Coimbatore's thriving technology ecosystem, GWU Technologies is redefining how industries conduct quality inspection — replacing rigid, expensive systems with adaptable, human-centric AI.</p>
-        <p style="color:var(--gray);line-height:1.9;margin-bottom:2rem" class="reveal">Our philosophy — <strong style="color:var(--dark)">Love, Wisdom, Service</strong> — permeates everything we build.</p>
+        <p style="color:var(--gray);line-height:1.9;margin-bottom:1.5rem" class="reveal">From Coimbatore's thriving
+          technology ecosystem, GWU Technologies is redefining how industries conduct quality inspection — replacing
+          rigid, expensive systems with adaptable, human-centric AI.</p>
+        <p style="color:var(--gray);line-height:1.9;margin-bottom:2rem" class="reveal">Our philosophy — <strong
+            style="color:var(--dark)">Love, Wisdom, Service</strong> — permeates everything we build.</p>
         <div class="about-values">
-          <div class="value-pill reveal reveal-delay-1"><div class="value-pill-icon">❤️</div><div class="value-pill-text"><h4>Love</h4><p>Deep passion for technology and genuine care for our clients</p></div></div>
-          <div class="value-pill reveal reveal-delay-2"><div class="value-pill-icon">🧠</div><div class="value-pill-text"><h4>Wisdom</h4><p>Domain expertise combined with thoughtful engineering decisions</p></div></div>
-          <div class="value-pill reveal reveal-delay-3"><div class="value-pill-icon">🤝</div><div class="value-pill-text"><h4>Service</h4><p>Relentless dedication to delivering value and long-term success</p></div></div>
+          <div class="value-pill reveal reveal-delay-1">
+            <div class="value-pill-icon">❤️</div>
+            <div class="value-pill-text">
+              <h4>Love</h4>
+              <p>Deep passion for technology and genuine care for our clients</p>
+            </div>
+          </div>
+          <div class="value-pill reveal reveal-delay-2">
+            <div class="value-pill-icon">🧠</div>
+            <div class="value-pill-text">
+              <h4>Wisdom</h4>
+              <p>Domain expertise combined with thoughtful engineering decisions</p>
+            </div>
+          </div>
+          <div class="value-pill reveal reveal-delay-3">
+            <div class="value-pill-icon">🤝</div>
+            <div class="value-pill-text">
+              <h4>Service</h4>
+              <p>Relentless dedication to delivering value and long-term success</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -76,14 +125,58 @@
 <section class="section team" id="team">
   <div class="section-inner">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem">
-      <div><div class="section-label reveal">The People</div><h2 class="section-title reveal">Leadership <em>Team</em></h2></div>
-      <p class="section-subtitle reveal" style="max-width:380px;text-align:right">Visionaries driving GWU's mission from Coimbatore to the world.</p>
+      <div>
+        <div class="section-label reveal">The People</div>
+        <h2 class="section-title reveal">Leadership <em>Team</em></h2>
+      </div>
+      <p class="section-subtitle reveal" style="max-width:380px;text-align:right">Visionaries driving GWU's mission from
+        Coimbatore to the world.</p>
     </div>
     <div class="team-grid">
-      <div class="team-card reveal reveal-delay-1"><div class="team-card-header"><div class="team-avatar-circle">RI</div></div><div class="team-card-body"><div class="team-card-role">Founder & Managing Director</div><div class="team-card-name">R Immanual</div><p class="team-card-bio">Visionary founder steering GWU's AI strategy, product innovation, and long-term growth.</p></div></div>
-      <div class="team-card reveal reveal-delay-2"><div class="team-card-header"><div class="team-avatar-circle">NS</div></div><div class="team-card-body"><div class="team-card-role">Chief Executive Officer</div><div class="team-card-name">N Sanjana</div><p class="team-card-bio">Dynamic CEO leading operational excellence and business development, translating vision into outcomes.</p></div></div>
-      <div class="team-card reveal reveal-delay-3"><div class="team-card-header"><div class="team-avatar-circle">JI</div></div><div class="team-card-body"><div class="team-card-role">Chief Finance Officer</div><div class="team-card-name">Jeyamary I</div><p class="team-card-bio">Financial architect ensuring sustainable scalability and fiscal discipline for GWU's growth roadmap.</p></div></div>
-      <div class="team-card reveal reveal-delay-4"><div class="team-card-header"><div class="team-avatar-circle">GM</div></div><div class="team-card-body"><div class="team-card-role">Strategic Advisor</div><div class="team-card-name">Ganesh M</div><p class="team-card-bio">Seasoned advisor bringing deep industry knowledge to accelerate GWU's market positioning.</p></div></div>
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-card-header">
+          <div class="team-avatar-circle">RI</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-role">Founder & Managing Director</div>
+          <div class="team-card-name">R Immanual</div>
+          <p class="team-card-bio">Visionary founder steering GWU's AI strategy, product innovation, and long-term
+            growth.</p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-card-header">
+          <div class="team-avatar-circle">NS</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-role">Chief Executive Officer</div>
+          <div class="team-card-name">N Sanjana</div>
+          <p class="team-card-bio">Dynamic CEO leading operational excellence and business development, translating
+            vision into outcomes.</p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-card-header">
+          <div class="team-avatar-circle">JI</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-role">Chief Finance Officer</div>
+          <div class="team-card-name">Jeyamary I</div>
+          <p class="team-card-bio">Financial architect ensuring sustainable scalability and fiscal discipline for GWU's
+            growth roadmap.</p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-4">
+        <div class="team-card-header">
+          <div class="team-avatar-circle">GM</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-role">Strategic Advisor</div>
+          <div class="team-card-name">Ganesh M</div>
+          <p class="team-card-bio">Seasoned advisor bringing deep industry knowledge to accelerate GWU's market
+            positioning.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -98,19 +191,46 @@
       <div class="product-main reveal">
         <div class="product-badge">⚡ Flagship Product</div>
         <h3 class="product-main-title">AI Inspector</h3>
-        <p class="product-main-desc">The first self-serve AI inspection platform where industrial users train defect detection models, validate in real-time, and deploy — without writing code.</p>
+        <p class="product-main-desc">The first self-serve AI inspection platform where industrial users train defect
+          detection models, validate in real-time, and deploy — without writing code.</p>
         <div class="product-features">
-          <div class="feature-item"><div class="feature-check">✓</div><span>Train custom models with your own labelled images</span></div>
-          <div class="feature-item"><div class="feature-check">✓</div><span>Real-time live test on production line feeds</span></div>
-          <div class="feature-item"><div class="feature-check">✓</div><span>One-click model deployment to edge devices</span></div>
-          <div class="feature-item"><div class="feature-check">✓</div><span>Continuously improve accuracy with feedback loops</span></div>
-          <div class="feature-item"><div class="feature-check">✓</div><span>Exportable reports and inspection analytics</span></div>
+          <div class="feature-item">
+            <div class="feature-check">✓</div><span>Train custom models with your own labelled images</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">✓</div><span>Real-time live test on production line feeds</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">✓</div><span>One-click model deployment to edge devices</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">✓</div><span>Continuously improve accuracy with feedback loops</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">✓</div><span>Exportable reports and inspection analytics</span>
+          </div>
         </div>
-        <div class="hitl-callout"><div class="hitl-icon">🔄</div><div class="hitl-text"><h4>Human-in-the-Loop Advantage</h4><p>Operators continuously refine model decisions — combining AI speed with human judgement.</p></div></div>
+        <div class="hitl-callout">
+          <div class="hitl-icon">🔄</div>
+          <div class="hitl-text">
+            <h4>Human-in-the-Loop Advantage</h4>
+            <p>Operators continuously refine model decisions — combining AI speed with human judgement.</p>
+          </div>
+        </div>
       </div>
       <div class="product-side">
-        <div class="product-side-card reveal reveal-delay-1"><div class="product-side-icon">👁️</div><div class="product-side-title">Machine Vision Accessories</div><p class="product-side-text">Industrial cameras, precision optics, LED lighting rigs, and mounting systems for seamless AI Inspector integration.</p></div>
-        <div class="product-side-card reveal reveal-delay-2"><div class="product-side-icon">🛒</div><div class="product-side-title">Retail Technology Store</div><p class="product-side-text">Specialized retail of computers, peripherals, audio-visual equipment, and telecom accessories.</p></div>
+        <div class="product-side-card reveal reveal-delay-1">
+          <div class="product-side-icon">👁️</div>
+          <div class="product-side-title">Machine Vision Accessories</div>
+          <p class="product-side-text">Industrial cameras, precision optics, LED lighting rigs, and mounting systems for
+            seamless AI Inspector integration.</p>
+        </div>
+        <div class="product-side-card reveal reveal-delay-2">
+          <div class="product-side-icon">🛒</div>
+          <div class="product-side-title">Retail Technology Store</div>
+          <p class="product-side-text">Specialized retail of computers, peripherals, audio-visual equipment, and telecom
+            accessories.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -119,12 +239,34 @@
 <!-- SERVICES -->
 <section class="section services" id="services">
   <div class="section-inner">
-    <div style="text-align:center"><div class="section-label reveal" style="justify-content:center">What We Offer</div><h2 class="section-title reveal">Our <em>Services</em></h2><p class="section-subtitle reveal" style="margin:0 auto;text-align:center">From code to classrooms — comprehensive solutions for every growth stage.</p></div>
+    <div style="text-align:center">
+      <div class="section-label reveal" style="justify-content:center">What We Offer</div>
+      <h2 class="section-title reveal">Our <em>Services</em></h2>
+      <p class="section-subtitle reveal" style="margin:0 auto;text-align:center">From code to classrooms — comprehensive
+        solutions for every growth stage.</p>
+    </div>
     <div class="services-grid">
-      <div class="service-card reveal reveal-delay-1"><div class="service-icon-wrap">💻</div><h3>Software Development</h3><p>Custom web and enterprise applications built with modern stacks. From MVPs to full-scale platforms.</p></div>
-      <div class="service-card reveal reveal-delay-2"><div class="service-icon-wrap">🤖</div><h3>AI &amp; ML Integration</h3><p>Embed intelligent capabilities into your existing workflows — computer vision, predictive analytics, NLP.</p></div>
-      <div class="service-card reveal reveal-delay-3"><div class="service-icon-wrap">🎓</div><h3>Virtual Education</h3><p>Online-first skill programs for students in AI fundamentals, machine vision, and software engineering.</p></div>
-      <div class="service-card reveal reveal-delay-4"><div class="service-icon-wrap">🔬</div><h3>R&amp;D Consulting</h3><p>Applied research and technical consulting across scientific computing, data engineering, and industrial automation.</p></div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon-wrap">💻</div>
+        <h3>Software Development</h3>
+        <p>Custom web and enterprise applications built with modern stacks. From MVPs to full-scale platforms.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon-wrap">🤖</div>
+        <h3>AI &amp; ML Integration</h3>
+        <p>Embed intelligent capabilities into your existing workflows — computer vision, predictive analytics, NLP.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon-wrap">🎓</div>
+        <h3>Virtual Education</h3>
+        <p>Online-first skill programs for students in AI fundamentals, machine vision, and software engineering.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon-wrap">🔬</div>
+        <h3>R&amp;D Consulting</h3>
+        <p>Applied research and technical consulting across scientific computing, data engineering, and industrial
+          automation.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -133,7 +275,10 @@
 <section class="section news" id="news">
   <div class="section-inner">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem">
-      <div><div class="section-label reveal">Latest Updates</div><h2 class="section-title reveal">News &amp; <em>Milestones</em></h2></div>
+      <div>
+        <div class="section-label reveal">Latest Updates</div>
+        <h2 class="section-title reveal">News &amp; <em>Milestones</em></h2>
+      </div>
       <a href="/news" class="news-readmore reveal" style="font-size:0.9rem">View all news →</a>
     </div>
     <div class="news-grid">
@@ -142,7 +287,8 @@
         <a href="/news/{{article.slug}}" style="text-decoration:none">
           <div class="news-card-img nc-{{loop.index}}"><span class="news-icon">{{article.emoji}}</span></div>
           <div class="news-card-body">
-            <div class="news-meta"><span class="news-date">{{article.created_at[:10]}}</span><span class="news-tag">{{article.category}}</span></div>
+            <div class="news-meta"><span class="news-date">{{article.created_at[:10]}}</span><span
+                class="news-tag">{{article.category}}</span></div>
             <h3>{{article.title}}</h3>
             <p>{{article.excerpt[:130]}}...</p>
             <span class="news-readmore">Read More →</span>
@@ -161,12 +307,38 @@
     <h2 class="section-title reveal">Let's Build <em>Together</em></h2>
     <div class="contact-grid">
       <div>
-        <p style="color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:2rem" class="reveal">Whether you're exploring AI Inspector, seeking machine vision accessories, or looking for a software partner — we'd love to hear from you.</p>
+        <p style="color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:2rem" class="reveal">Whether you're
+          exploring AI Inspector, seeking machine vision accessories, or looking for a software partner — we'd love to
+          hear from you.</p>
         <div class="contact-info-items">
-          <div class="contact-info-item reveal reveal-delay-1"><div class="contact-info-icon">📍</div><div class="contact-info-text"><h4>Office</h4><p>SISH Incubation Centre, SRIT, Pachapalayam, Perur, Coimbatore – 641010</p></div></div>
-          <div class="contact-info-item reveal reveal-delay-2"><div class="contact-info-icon">📧</div><div class="contact-info-text"><h4>Email</h4><p>immangwu@gmail.com</p></div></div>
-          <div class="contact-info-item reveal reveal-delay-3"><div class="contact-info-icon">📱</div><div class="contact-info-text"><h4>Phone</h4><p>+91 9677817992</p></div></div>
-          <div class="contact-info-item reveal reveal-delay-4"><div class="contact-info-icon">🏦</div><div class="contact-info-text"><h4>Bank</h4><p>City Union Bank · IFSC: CIUB0000034</p></div></div>
+          <div class="contact-info-item reveal reveal-delay-1">
+            <div class="contact-info-icon">📍</div>
+            <div class="contact-info-text">
+              <h4>Office</h4>
+              <p>SISH Incubation Centre, SRIT, Pachapalayam, Perur, Coimbatore – 641010</p>
+            </div>
+          </div>
+          <div class="contact-info-item reveal reveal-delay-2">
+            <div class="contact-info-icon">📧</div>
+            <div class="contact-info-text">
+              <h4>Email</h4>
+              <p>immangwu@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-info-item reveal reveal-delay-3">
+            <div class="contact-info-icon">📱</div>
+            <div class="contact-info-text">
+              <h4>Phone</h4>
+              <p>+91 9677817992</p>
+            </div>
+          </div>
+          <div class="contact-info-item reveal reveal-delay-4">
+            <div class="contact-info-icon">🏦</div>
+            <div class="contact-info-text">
+              <h4>Bank</h4>
+              <p>City Union Bank · IFSC: CIUB0000034</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="contact-form-wrap reveal">
@@ -176,10 +348,12 @@
         <div id="form-error" class="form-error-msg" style="display:none"></div>
         <form id="contactForm">
           <div class="form-row">
-            <div class="form-group"><label>First Name *</label><input type="text" name="first_name" placeholder="John" required></div>
+            <div class="form-group"><label>First Name *</label><input type="text" name="first_name" placeholder="John"
+                required></div>
             <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Doe"></div>
           </div>
-          <div class="form-group"><label>Email Address *</label><input type="email" name="email" placeholder="john@company.com" required></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" name="email"
+              placeholder="john@company.com" required></div>
           <div class="form-group"><label>I'm interested in</label>
             <select name="interest">
               <option>AI Inspector Platform</option>
@@ -189,7 +363,8 @@
               <option>General Enquiry</option>
             </select>
           </div>
-          <div class="form-group"><label>Message *</label><textarea name="message" placeholder="Tell us about your project..." required></textarea></div>
+          <div class="form-group"><label>Message *</label><textarea name="message"
+              placeholder="Tell us about your project..." required></textarea></div>
           <button type="submit" class="form-submit" id="submitBtn">Send Message <span>→</span></button>
         </form>
       </div>
