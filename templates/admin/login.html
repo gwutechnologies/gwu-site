@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Admin Login – GWU Technologies</title>
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/GWU LOGObgr.png') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/gwu-logo-black.png') }}">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet">
@@ -131,7 +131,7 @@
 
 <body>
   <div class="login-box">
-    <div class="logo"><img src="{{ (( '../' * request.path.strip('/').count('/')) or './') ~ 'static/assets/GWU LOGObgr.png' }}" alt="GWU Technologies">
+    <div class="logo"><img src="{{ url_for('static', filename='assets/gwu-logo-black.png') }}" alt="GWU Technologies">
     </div>
     <div class="sub">Admin Panel · Secure Access</div>
     {% with messages = get_flashed_messages() %}{% if messages %}<div class="flash">{{ messages[0] }}</div>{% endif %}{%

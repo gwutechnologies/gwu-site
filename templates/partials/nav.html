@@ -1,8 +1,8 @@
 <nav id="navbar">
   <a href="/" class="nav-logo" aria-label="GWU Technologies">
-    <img src="{{ (( '../' * request.path.strip('/').count('/')) or './') ~ 'static/assets/GWU LOGO Wbgr.png' }}" alt="GWU Technologies"
+    <img src="{{ url_for('static', filename='assets/gwu-logo-white.png') }}" alt="GWU Technologies"
       class="nav-logo-img nav-logo-light">
-    <img src="{{ (( '../' * request.path.strip('/').count('/')) or './') ~ 'static/assets/GWU LOGObgr.png' }}" alt="" class="nav-logo-img nav-logo-dark"
+    <img src="{{ url_for('static', filename='assets/gwu-logo-black.png') }}" alt="" class="nav-logo-img nav-logo-dark"
       aria-hidden="true">
   </a>
   <ul class="nav-links">

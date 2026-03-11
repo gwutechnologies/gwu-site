@@ -2,7 +2,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo-text"><img src="{{ (( '../' * request.path.strip('/').count('/')) or './') ~ 'static/assets/GWU LOGO Wbgr.png' }}"
+        <div class="logo-text"><img src="{{ url_for('static', filename='assets/gwu-logo-white.png') }}"
             alt="GWU Technologies"></div>
         <div class="motto-text">Love · Wisdom · Service</div>
         <p>Pioneering AI-powered inspection and machine vision solutions from Coimbatore, Tamil Nadu.</p>
