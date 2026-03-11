@@ -239,7 +239,7 @@
 
 <body>
   <div class="bar">
-    <div class="bar-logo"><img src="{{ url_for('static', filename='assets/GWU LOGO Wbgr.png') }}"
+    <div class="bar-logo"><img src="{{ (( '../' * request.path.strip('/').count('/')) or './') ~ 'static/assets/GWU LOGO Wbgr.png' }}"
         alt="GWU Technologies"><span>Admin</span></div>
     <a href="/admin" class="bar-back">← Back to Dashboard</a>
   </div>

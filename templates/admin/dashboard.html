@@ -400,7 +400,7 @@
 <body>
   <aside class="sidebar">
     <div class="sb-logo">
-      <div class="lt"><img src="{{ url_for('static', filename='assets/GWU LOGO Wbgr.png') }}" alt="GWU Technologies">
+      <div class="lt"><img src="{{ (( '../' * request.path.strip('/').count('/')) or './') ~ 'static/assets/GWU LOGO Wbgr.png' }}" alt="GWU Technologies">
       </div>
       <div class="ls">Admin Panel</div>
     </div>

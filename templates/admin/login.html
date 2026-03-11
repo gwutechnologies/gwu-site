@@ -131,7 +131,7 @@
 
 <body>
   <div class="login-box">
-    <div class="logo"><img src="{{ url_for('static', filename='assets/GWU LOGObgr.png') }}" alt="GWU Technologies">
+    <div class="logo"><img src="{{ (( '../' * request.path.strip('/').count('/')) or './') ~ 'static/assets/GWU LOGObgr.png' }}" alt="GWU Technologies">
     </div>
     <div class="sub">Admin Panel · Secure Access</div>
     {% with messages = get_flashed_messages() %}{% if messages %}<div class="flash">{{ messages[0] }}</div>{% endif %}{%
