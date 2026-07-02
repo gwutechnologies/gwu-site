@@ -38,12 +38,38 @@
       </div>
     </div>
   </div>
-  <div class="hero-floating-card">
-    <div class="floating-card-label">Flagship Product</div>
-    <div class="floating-card-title">AI Inspector</div>
-    <div class="floating-card-text">Train · Test · Deploy your own inspection models with zero ML expertise required.
+  <div class="inspector-scene">
+    <div class="scene-header">
+      <span class="scene-dot"></span>
+      <span>Live Inspection Feed — AI Inspector</span>
     </div>
-    <span class="floating-card-tag">Human-in-the-Loop ✦</span>
+    <div class="belt-track">
+      <div class="belt-surface"></div>
+      <div class="belt-rail belt-rail-top"></div>
+      <div class="belt-rail belt-rail-bottom"></div>
+      <div class="scanner-head">
+        <div class="scanner-lens"></div>
+        <div class="scan-beam"></div>
+      </div>
+      <div class="part part-1"><span class="part-icon">⚙</span><span class="part-badge badge-ok">OK</span></div>
+      <div class="part part-2"><span class="part-icon">⚙</span><span class="part-badge badge-nok">NOK</span></div>
+      <div class="part part-3"><span class="part-icon">⚙</span><span class="part-badge badge-ok">OK</span></div>
+      <div class="part part-4"><span class="part-icon">⚙</span><span class="part-badge badge-ok">OK</span></div>
+    </div>
+    <div class="scene-stats">
+      <div class="scene-stat">
+        <div class="scene-stat-num" id="statInspected">0</div>
+        <div class="scene-stat-label">Scanned</div>
+      </div>
+      <div class="scene-stat is-ok">
+        <div class="scene-stat-num" id="statOk">0</div>
+        <div class="scene-stat-label">OK</div>
+      </div>
+      <div class="scene-stat is-nok">
+        <div class="scene-stat-num" id="statNok">0</div>
+        <div class="scene-stat-label">NOK</div>
+      </div>
+    </div>
   </div>
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>Scroll
@@ -75,6 +101,28 @@
     <div class="about-grid">
       <div class="about-visual reveal">
         <div class="about-card-main">
+          <div class="cobot-stage js-anim" aria-hidden="true">
+            <div class="cobot-rail"></div>
+            <div class="cobot-conveyor"></div>
+            <div class="cobot-part">
+              <div class="cobot-scan"></div>
+              <div class="cobot-bbox"></div>
+              <span class="cobot-bbox-tag">CAPTURE</span>
+              <div class="cobot-flash"></div>
+            </div>
+            <div class="cobot">
+              <div class="cobot-base"></div>
+              <div class="cobot-arm-a">
+                <div class="cobot-arm-b">
+                  <div class="cobot-head">
+                    <div class="cobot-lens"></div>
+                    <div class="cobot-led"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cobot-ai">◍ AI&nbsp;PROCESSING</div>
+          </div>
           <div class="about-card-main-text">
             <div class="big-number">2026</div>
             <h3>Founded with Purpose</h3>
@@ -95,21 +143,63 @@
             style="color:var(--dark)">Love, Wisdom, Service</strong> — permeates everything we build.</p>
         <div class="about-values">
           <div class="value-pill reveal reveal-delay-1">
-            <div class="value-pill-icon">❤️</div>
+            <div class="value-pill-icon vv-love js-anim" aria-hidden="true">
+              <svg viewBox="0 0 44 44" class="vv-svg">
+                <g class="vv-love-trace" fill="none" stroke-width="1.3" stroke-linecap="round">
+                  <path d="M3 11 H13 V19" />
+                  <path d="M41 13 H31 V21" />
+                  <path d="M6 37 H17 V27" />
+                </g>
+                <path class="vv-heart"
+                  d="M22 33 C13 26 14.5 16.5 22 20.5 C29.5 16.5 31 26 22 33 Z" />
+                <circle class="vv-love-led" cx="3" cy="11" r="1.7" />
+                <circle class="vv-love-led vv-love-led-2" cx="41" cy="13" r="1.7" />
+              </svg>
+            </div>
             <div class="value-pill-text">
               <h4>Love</h4>
               <p>Deep passion for technology and genuine care for our clients</p>
             </div>
           </div>
           <div class="value-pill reveal reveal-delay-2">
-            <div class="value-pill-icon">🧠</div>
+            <div class="value-pill-icon vv-wisdom js-anim" aria-hidden="true">
+              <svg viewBox="0 0 44 44" class="vv-svg">
+                <g class="vv-edges" stroke-width="1">
+                  <line x1="10" y1="14" x2="24" y2="10" />
+                  <line x1="10" y1="14" x2="18" y2="26" />
+                  <line x1="24" y1="10" x2="34" y2="20" />
+                  <line x1="18" y1="26" x2="34" y2="20" />
+                  <line x1="18" y1="26" x2="26" y2="34" />
+                  <line x1="34" y1="20" x2="26" y2="34" />
+                </g>
+                <g class="vv-nodes">
+                  <circle cx="10" cy="14" r="2.4" />
+                  <circle cx="24" cy="10" r="2.4" />
+                  <circle cx="18" cy="26" r="2.4" />
+                  <circle cx="34" cy="20" r="2.4" />
+                  <circle cx="26" cy="34" r="2.4" />
+                </g>
+                <circle class="vv-particle" r="1.5" />
+              </svg>
+            </div>
             <div class="value-pill-text">
               <h4>Wisdom</h4>
               <p>Domain expertise combined with thoughtful engineering decisions</p>
             </div>
           </div>
           <div class="value-pill reveal reveal-delay-3">
-            <div class="value-pill-icon">🤝</div>
+            <div class="value-pill-icon vv-service js-anim" aria-hidden="true">
+              <svg viewBox="0 0 44 44" class="vv-svg">
+                <g class="vv-arm" fill="none" stroke-width="2" stroke-linecap="round">
+                  <path d="M2 30 L11 30 L17 22" />
+                </g>
+                <rect class="vv-part" x="15" y="19" width="7" height="7" rx="1.5" />
+                <path class="vv-tray" fill="none" stroke-width="1.6" stroke-linecap="round"
+                  d="M30 22 v6 h10 v-6" />
+                <path class="vv-check" fill="none" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" d="M32 15 l2.4 2.4 L39 12" />
+              </svg>
+            </div>
             <div class="value-pill-text">
               <h4>Service</h4>
               <p>Relentless dedication to delivering value and long-term success</p>
@@ -121,61 +211,39 @@
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="section team" id="team">
+<!-- CUSTOMERS -->
+<section class="section customers" id="customers">
   <div class="section-inner">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem">
-      <div>
-        <div class="section-label reveal">The People</div>
-        <h2 class="section-title reveal">Leadership <em>Team</em></h2>
-      </div>
-      <p class="section-subtitle reveal" style="max-width:380px;text-align:right">Visionaries driving GWU's mission from
-        Coimbatore to the world.</p>
+    <div style="text-align:center">
+      <div class="section-label reveal" style="justify-content:center">Who We Work With</div>
+      <h2 class="section-title reveal">Our <em>Customers</em></h2>
+      <p class="section-subtitle reveal" style="margin:0 auto;text-align:center">Trusted by industry leaders to bring
+        AI-powered inspection and vision to their production lines.</p>
     </div>
-    <div class="team-grid">
-      <div class="team-card reveal reveal-delay-1">
-        <div class="team-card-header">
-          <div class="team-avatar-circle">RI</div>
-        </div>
-        <div class="team-card-body">
-          <div class="team-card-role">Founder & Managing Director</div>
-          <div class="team-card-name">R Immanual</div>
-          <p class="team-card-bio">Visionary founder steering GWU's AI strategy, product innovation, and long-term
-            growth.</p>
-        </div>
+    <div class="net-hub js-anim reveal" aria-hidden="true">
+      <div class="net-hub-core">
+        <img src="{{ url_for('static', filename='assets/gwu-logo-black.png') }}" alt="" class="net-hub-logo">
+        <span class="net-hub-ring"></span>
+        <span class="net-hub-ring net-hub-ring-2"></span>
       </div>
-      <div class="team-card reveal reveal-delay-2">
-        <div class="team-card-header">
-          <div class="team-avatar-circle">NS</div>
-        </div>
-        <div class="team-card-body">
-          <div class="team-card-role">Chief Executive Officer</div>
-          <div class="team-card-name">N Sanjana</div>
-          <p class="team-card-bio">Dynamic CEO leading operational excellence and business development, translating
-            vision into outcomes.</p>
-        </div>
+      <div class="net-hub-label">GWU CORE · <span>Active Deployments</span></div>
+      <div class="net-beam">
+        <span class="net-packet"></span>
+        <span class="net-packet"></span>
+        <span class="net-packet"></span>
+        <span class="net-node-end"></span>
       </div>
-      <div class="team-card reveal reveal-delay-3">
-        <div class="team-card-header">
-          <div class="team-avatar-circle">JI</div>
+    </div>
+    <div class="customers-grid">
+      <div class="customer-card reveal reveal-delay-1">
+        <div class="customer-logo-outer">
+          <div class="customer-logo-wrap">
+            <img src="{{ url_for('static', filename='assets/customers/roots-cast-iron.png') }}"
+              alt="Roots Cast Iron" class="customer-logo">
+          </div>
+          <span class="verified-badge">✓</span>
         </div>
-        <div class="team-card-body">
-          <div class="team-card-role">Chief Finance Officer</div>
-          <div class="team-card-name">Jeyamary I</div>
-          <p class="team-card-bio">Financial architect ensuring sustainable scalability and fiscal discipline for GWU's
-            growth roadmap.</p>
-        </div>
-      </div>
-      <div class="team-card reveal reveal-delay-4">
-        <div class="team-card-header">
-          <div class="team-avatar-circle">GM</div>
-        </div>
-        <div class="team-card-body">
-          <div class="team-card-role">Strategic Advisor</div>
-          <div class="team-card-name">Ganesh M</div>
-          <p class="team-card-bio">Seasoned advisor bringing deep industry knowledge to accelerate GWU's market
-            positioning.</p>
-        </div>
+        <div class="customer-name">Roots Cast Iron</div>
       </div>
     </div>
   </div>
@@ -187,6 +255,25 @@
     <div class="section-label reveal" style="color:var(--red-light)">What We Build</div>
     <h2 class="section-title reveal">Our <em>Products</em></h2>
     <p class="section-subtitle reveal">Purpose-built AI and vision tools that put the human in control.</p>
+    <div class="ai-pipeline js-anim reveal" aria-hidden="true">
+      <div class="pl-head">
+        <span class="pl-title">◍ AI INSPECTION PIPELINE</span>
+        <span class="pl-acc">MODEL ACCURACY <b class="pl-acc-num"></b></span>
+      </div>
+      <div class="pl-track">
+        <div class="pl-flow"></div>
+        <div class="pl-stage" style="--i:0"><span class="pl-node">📷</span><span class="pl-name">Camera</span></div>
+        <div class="pl-stage" style="--i:1"><span class="pl-node">🗂️</span><span class="pl-name">Dataset</span></div>
+        <div class="pl-stage" style="--i:2"><span class="pl-node">✎</span><span class="pl-name">Annotation</span></div>
+        <div class="pl-stage" style="--i:3"><span class="pl-node">⚙</span><span class="pl-name">Training</span></div>
+        <div class="pl-stage" style="--i:4"><span class="pl-node">✓</span><span class="pl-name">Validation</span></div>
+        <div class="pl-stage" style="--i:5"><span class="pl-node">🚀</span><span class="pl-name">Deployment</span></div>
+        <div class="pl-stage" style="--i:6"><span class="pl-node">◎</span><span class="pl-name">Live Detection</span></div>
+        <span class="pl-packet"></span>
+        <span class="pl-packet pl-packet-2"></span>
+      </div>
+      <div class="pl-progress"><span class="pl-progress-fill"></span></div>
+    </div>
     <div class="products-layout">
       <div class="product-main reveal">
         <div class="product-badge">⚡ Flagship Product</div>
@@ -217,10 +304,94 @@
             <p>Operators continuously refine model decisions — combining AI speed with human judgement.</p>
           </div>
         </div>
+        <div class="hitl-hud js-anim" aria-hidden="true">
+          <div class="hh-head"><span class="hh-head-dot"></span>HUMAN-IN-THE-LOOP · CONTINUOUS LEARNING</div>
+          <div class="hh-flow">
+            <div class="hh-stage hh-ai">
+              <div class="hh-frame">
+                <span class="hh-part"></span>
+                <span class="hh-scan"></span>
+                <span class="hh-box"></span>
+              </div>
+              <div class="hh-caption">AI PREDICTION</div>
+              <div class="hh-verdict">OK <b>96%</b></div>
+            </div>
+            <div class="hh-arrow"></div>
+            <div class="hh-stage hh-human">
+              <div class="hh-op">
+                <span class="hh-op-ring"></span>
+                <span class="hh-op-icon">🧑‍🔧</span>
+              </div>
+              <div class="hh-caption">HUMAN REVIEW</div>
+              <div class="hh-stamp">APPROVED</div>
+            </div>
+            <div class="hh-arrow"></div>
+            <div class="hh-stage hh-conf">
+              <div class="hh-caption">MODEL CONFIDENCE</div>
+              <div class="hh-conf-num"></div>
+              <div class="hh-conf-bar"><span></span></div>
+            </div>
+          </div>
+          <div class="hh-status"><span>◍ INSPECTION SAVED — INITIATING NEXT INSPECTION</span></div>
+        </div>
       </div>
       <div class="product-side">
         <div class="product-side-card reveal reveal-delay-1">
-          <div class="product-side-icon">👁️</div>
+          <div class="mv-cal js-anim" aria-hidden="true">
+            <svg viewBox="0 0 200 116" class="mv-svg">
+              <defs>
+                <radialGradient id="mvGlass" cx="50%" cy="42%" r="60%">
+                  <stop offset="0%" stop-color="#2b3138" />
+                  <stop offset="70%" stop-color="#14171b" />
+                  <stop offset="100%" stop-color="#0c0e11" />
+                </radialGradient>
+                <linearGradient id="mvBody" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#4c535b" />
+                  <stop offset="100%" stop-color="#262a2f" />
+                </linearGradient>
+              </defs>
+              <rect class="mv-body" x="52" y="20" width="96" height="80" rx="10" fill="url(#mvBody)" />
+              <rect class="mv-mount" x="92" y="98" width="16" height="12" rx="2" />
+              <g class="mv-leds">
+                <circle cx="133" cy="56" r="2.2" style="--l:0" />
+                <circle cx="123.3" cy="32.7" r="2.2" style="--l:1" />
+                <circle cx="100" cy="23" r="2.2" style="--l:2" />
+                <circle cx="76.7" cy="32.7" r="2.2" style="--l:3" />
+                <circle cx="67" cy="56" r="2.2" style="--l:4" />
+                <circle cx="76.7" cy="79.3" r="2.2" style="--l:5" />
+                <circle cx="100" cy="89" r="2.2" style="--l:6" />
+                <circle cx="123.3" cy="79.3" r="2.2" style="--l:7" />
+              </g>
+              <circle class="mv-bezel" cx="100" cy="56" r="35" />
+              <g class="mv-focus">
+                <circle cx="100" cy="56" r="29" class="mv-focus-ring" />
+              </g>
+              <circle class="mv-glass" cx="100" cy="56" r="23" fill="url(#mvGlass)" />
+              <g class="mv-grid">
+                <line x1="88" y1="39" x2="88" y2="73" />
+                <line x1="100" y1="37" x2="100" y2="75" />
+                <line x1="112" y1="39" x2="112" y2="73" />
+                <line x1="81" y1="46" x2="119" y2="46" />
+                <line x1="79" y1="56" x2="121" y2="56" />
+                <line x1="81" y1="66" x2="119" y2="66" />
+              </g>
+              <g class="mv-reticle">
+                <line x1="100" y1="42" x2="100" y2="70" />
+                <line x1="86" y1="56" x2="114" y2="56" />
+                <circle cx="100" cy="56" r="7" />
+              </g>
+              <g class="mv-brackets">
+                <path class="mv-br" d="M78 40 h-7 v7" />
+                <path class="mv-br" d="M122 40 h7 v7" />
+                <path class="mv-br" d="M78 72 h-7 v-7" />
+                <path class="mv-br" d="M122 72 h7 v-7" />
+              </g>
+              <g class="mv-badge">
+                <rect x="66" y="49" width="68" height="15" rx="7.5" />
+                <text x="100" y="59.5" class="mv-badge-t">CALIBRATED</text>
+              </g>
+            </svg>
+          </div>
           <div class="product-side-title">Machine Vision Accessories</div>
           <p class="product-side-text">Industrial cameras, precision optics, LED lighting rigs, and mounting systems for
             seamless AI Inspector integration.</p>
@@ -247,22 +418,74 @@
     </div>
     <div class="services-grid">
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon-wrap">💻</div>
+        <div class="service-icon-wrap sv-code js-anim" aria-hidden="true">
+          <svg viewBox="0 0 52 52" class="sv-svg">
+            <rect x="8" y="10" width="36" height="32" rx="4" class="sv-win" />
+            <line x1="8" y1="17" x2="44" y2="17" class="sv-winbar" />
+            <circle cx="12" cy="13.5" r="1.1" class="sv-dot" />
+            <g class="sv-lines" stroke-linecap="round">
+              <line x1="13" y1="24" x2="27" y2="24" />
+              <line x1="13" y1="29" x2="33" y2="29" />
+              <line x1="13" y1="34" x2="23" y2="34" />
+            </g>
+            <rect class="sv-cursor" x="35" y="31.5" width="1.6" height="5" />
+            <path class="sv-ok" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              d="M22 27 l3 3 5.5-6" />
+          </svg>
+        </div>
         <h3>Software Development</h3>
         <p>Custom web and enterprise applications built with modern stacks. From MVPs to full-scale platforms.</p>
       </div>
       <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon-wrap">🤖</div>
+        <div class="service-icon-wrap sv-ai js-anim" aria-hidden="true">
+          <svg viewBox="0 0 52 52" class="sv-svg">
+            <g class="sv-ai-nodes" fill="none">
+              <ellipse cx="26" cy="12" rx="8" ry="3.4" class="sv-db" />
+              <path class="sv-db-side" d="M18 12 v6 a8 3.4 0 0 0 16 0 v-6" />
+              <circle cx="26" cy="26" r="6" class="sv-brain" />
+              <rect x="18" y="38" width="16" height="8" rx="1.5" class="sv-dash" />
+            </g>
+            <line x1="26" y1="19" x2="26" y2="20.5" class="sv-link" />
+            <line x1="26" y1="32" x2="26" y2="37" class="sv-link" />
+            <circle class="sv-ai-particle" cx="26" cy="20" r="1.5" />
+          </svg>
+        </div>
         <h3>AI &amp; ML Integration</h3>
         <p>Embed intelligent capabilities into your existing workflows — computer vision, predictive analytics, NLP.</p>
       </div>
       <div class="service-card reveal reveal-delay-3">
-        <div class="service-icon-wrap">🎓</div>
+        <div class="service-icon-wrap sv-edu js-anim" aria-hidden="true">
+          <svg viewBox="0 0 52 52" class="sv-svg">
+            <path class="sv-cap" d="M26 12 L42 19 L26 26 L10 19 Z" />
+            <path class="sv-cap-tassel" fill="none" stroke-linecap="round" d="M42 19 v6" />
+            <rect x="14" y="34" width="24" height="4" rx="2" class="sv-track" />
+            <rect x="14" y="34" width="24" height="4" rx="2" class="sv-fill" />
+            <path class="sv-cert" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              d="M20 42 l3 3 6-7" />
+          </svg>
+        </div>
         <h3>Virtual Education</h3>
         <p>Online-first skill programs for students in AI fundamentals, machine vision, and software engineering.</p>
       </div>
       <div class="service-card reveal reveal-delay-4">
-        <div class="service-icon-wrap">🔬</div>
+        <div class="service-icon-wrap sv-rd js-anim" aria-hidden="true">
+          <svg viewBox="0 0 52 52" class="sv-svg">
+            <rect x="9" y="10" width="34" height="32" rx="3" class="sv-blueprint" />
+            <g class="sv-grid" stroke-width=".5">
+              <line x1="9" y1="21" x2="43" y2="21" />
+              <line x1="9" y1="31" x2="43" y2="31" />
+              <line x1="20" y1="10" x2="20" y2="42" />
+              <line x1="31" y1="10" x2="31" y2="42" />
+            </g>
+            <path class="sv-gear"
+              d="M20 22 l1.4-.6 .5-1.7 1.5 0 .5 1.7 1.4 .6 1.5-.9 1 1.1-.8 1.5 .6 1.4 1.6 .4 0 1.5-1.6 .4-.6 1.4 .8 1.5-1 1.1-1.5-.9-1.4 .6-.5 1.7-1.5 0-.5-1.7-1.4-.6-1.5 .9-1-1.1 .8-1.5-.6-1.4-1.6-.4 0-1.5 1.6-.4 .6-1.4-.8-1.5 1-1.1z" />
+            <g class="sv-bars">
+              <rect x="31" y="34" width="2.4" height="4" class="sv-bar" />
+              <rect x="35" y="32" width="2.4" height="6" class="sv-bar" />
+              <rect x="39" y="29" width="2.4" height="9" class="sv-bar" />
+            </g>
+          </svg>
+        </div>
         <h3>R&amp;D Consulting</h3>
         <p>Applied research and technical consulting across scientific computing, data engineering, and industrial
           automation.</p>
@@ -281,9 +504,11 @@
       </div>
       <a href="/news" class="news-readmore reveal" style="font-size:0.9rem">View all news →</a>
     </div>
+    <div class="news-timeline reveal" aria-hidden="true"><span class="news-timeline-fill"></span></div>
     <div class="news-grid">
       {% for article in news %}
       <div class="news-card reveal reveal-delay-{{loop.index}}">
+        <span class="news-node js-anim" aria-hidden="true"></span>
         <a href="/news/{{article.slug}}" style="text-decoration:none">
           <div class="news-card-img nc-{{loop.index}}"><span class="news-icon">{{article.emoji}}</span></div>
           <div class="news-card-body">
@@ -302,6 +527,8 @@
 
 <!-- CONTACT -->
 <section class="section contact" id="contact">
+  <div class="contact-gridbg js-anim" aria-hidden="true"></div>
+  <div class="contact-scanline js-anim" aria-hidden="true"></div>
   <div class="section-inner">
     <div class="section-label reveal" style="color:var(--red-light)">Get In Touch</div>
     <h2 class="section-title reveal">Let's Build <em>Together</em></h2>
@@ -312,31 +539,33 @@
           hear from you.</p>
         <div class="contact-info-items">
           <div class="contact-info-item reveal reveal-delay-1">
-            <div class="contact-info-icon">📍</div>
+            <div class="contact-info-icon contact-gps js-anim">📍<span class="gps-ping"></span><span
+                class="gps-ping gps-ping-2"></span></div>
             <div class="contact-info-text">
               <h4>Office</h4>
-              <p>SISH Incubation Centre, SRIT, Pachapalayam, Perur, Coimbatore – 641010</p>
+              <p>GWU Technologies<br>151 - Villai Veedu, Veerapandi Road, Chinnathadagam,<br>Coimbatore, Tamil Nadu
+                641108, India</p>
             </div>
           </div>
           <div class="contact-info-item reveal reveal-delay-2">
             <div class="contact-info-icon">📧</div>
             <div class="contact-info-text">
               <h4>Email</h4>
-              <p>immangwu@gmail.com</p>
+              <p>ceo@gwutechnologies.com</p>
             </div>
           </div>
           <div class="contact-info-item reveal reveal-delay-3">
             <div class="contact-info-icon">📱</div>
             <div class="contact-info-text">
               <h4>Phone</h4>
-              <p>+91 9677817992</p>
+              <p>+91 96778 17992</p>
             </div>
           </div>
           <div class="contact-info-item reveal reveal-delay-4">
-            <div class="contact-info-icon">🏦</div>
+            <div class="contact-info-icon">🌐</div>
             <div class="contact-info-text">
-              <h4>Bank</h4>
-              <p>City Union Bank · IFSC: CIUB0000034</p>
+              <h4>Website</h4>
+              <p>www.gwutechnologies.com</p>
             </div>
           </div>
         </div>

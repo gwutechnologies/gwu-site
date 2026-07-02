@@ -170,7 +170,7 @@ def send_notification_email(fname, lname, email, interest, message):
     SMTP_PORT = int(os.getenv('SMTP_PORT', 587))
     SMTP_USER = os.getenv('SMTP_USER', '')
     SMTP_PASS = os.getenv('SMTP_PASS', '')
-    TO_EMAIL  = os.getenv('NOTIFY_EMAIL', 'immangwu@gmail.com')
+    TO_EMAIL  = os.getenv('NOTIFY_EMAIL', 'ceo@gwutechnologies.com')
 
     if not SMTP_USER or not SMTP_PASS:
         return  # Skip if not configured

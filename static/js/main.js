@@ -24,12 +24,12 @@ if (cursor && follower) {
   document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-      cursor.style.background = 'rgba(200,16,46,0.5)';
+      cursor.style.background = 'rgba(255,154,0,0.5)';
       follower.style.opacity = '0';
     });
     el.addEventListener('mouseleave', () => {
       cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-      cursor.style.background = '#C8102E';
+      cursor.style.background = '#FF9A00';
       follower.style.opacity = '0.5';
     });
   });
@@ -113,6 +113,34 @@ if (contactForm) {
       btn.disabled = false;
       btn.innerHTML = 'Send Message <span>→</span>';
     }
+  });
+}
+
+// ── VIEWPORT-GATED ANIMATIONS (pause offscreen for perf) ────────────────────────
+const animEls = document.querySelectorAll('.js-anim');
+if (animEls.length && 'IntersectionObserver' in window) {
+  const animObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => e.target.classList.toggle('anim-run', e.isIntersecting));
+  }, { threshold: 0.2 });
+  animEls.forEach(el => animObserver.observe(el));
+}
+
+// ── INSPECTION SCENE COUNTERS ──────────────────────────────────────────────────
+// Counts are driven by the badge animations themselves (one 'animationiteration'
+// per part pass), so the tally always matches what's visibly happening on the belt.
+const statInspected = document.getElementById('statInspected');
+const statOk = document.getElementById('statOk');
+const statNok = document.getElementById('statNok');
+if (statInspected && statOk && statNok) {
+  let inspected = 0, ok = 0, nok = 0;
+  document.querySelectorAll('.belt-track .part-badge').forEach(badge => {
+    badge.addEventListener('animationiteration', () => {
+      inspected++;
+      if (badge.classList.contains('badge-ok')) ok++; else nok++;
+      statInspected.textContent = inspected;
+      statOk.textContent = ok;
+      statNok.textContent = nok;
+    });
   });
 }
 
