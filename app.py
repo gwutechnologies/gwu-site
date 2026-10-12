@@ -132,6 +132,23 @@ def news_detail(slug):
     related = db.execute('SELECT * FROM news WHERE published=1 AND id!=? ORDER BY created_at DESC LIMIT 2', (article['id'],)).fetchall()
     return render_template('news_detail.html', article=article, related=related)
 
+@app.route('/privacy-policy')
+def privacy_policy():
+    return render_template('privacy_policy.html')
+
+@app.route('/privacy')
+def privacy_redirect():
+    return redirect(url_for('privacy_policy'), code=301)
+
+@app.route('/terms-of-use')
+def terms_of_use():
+    return render_template('terms_of_use.html')
+
+@app.route('/terms')
+def terms_redirect():
+    return redirect(url_for('terms_of_use'), code=301)
+
+
 @app.route('/contact', methods=['POST'])
 def contact_submit():
     data = request.get_json() or request.form
@@ -347,11 +364,17 @@ def change_password():
     return redirect(url_for('admin_dashboard'))
 
 if __name__ == '__main__':
+    import sys
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
     init_db()
     print('\n' + '='*55)
     print('  GWU Technologies Server Starting...')
-    print('  Website  → http://localhost:5000')
-    print('  Admin    → http://localhost:5000/admin')
-    print('  Login    → admin / GWU@2026')
+    print('  Website  -> http://localhost:5000')
+    print('  Admin    -> http://localhost:5000/admin')
+    print('  Login    -> admin / GWU@2026')
     print('='*55 + '\n')
     app.run(debug=True, host='0.0.0.0', port=5000)
+

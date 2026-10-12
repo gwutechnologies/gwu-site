@@ -1,0 +1,550 @@
+{% extends 'base.html' %}
+{% block title %}Terms of Use & Service Guidelines – GWU Technologies{% endblock %}
+
+{% block content %}
+<!-- HERO -->
+<section class="legal-hero">
+  <div class="legal-hero-bg"></div>
+  <div class="legal-hero-inner">
+    <div class="legal-breadcrumbs">
+      <a href="/">Home</a>
+      <span class="bc-sep">/</span>
+      <span>Legal</span>
+      <span class="bc-sep">/</span>
+      <span class="bc-curr">Terms of Use</span>
+    </div>
+
+    <h1 class="legal-hero-title">Terms of <em>Use</em></h1>
+    <p class="legal-hero-desc">
+      Terms, service guidelines, acceptable use parameters, and automated channel policies governing your access to and interaction with GWU Technologies.
+    </p>
+
+    <div class="legal-meta-bar">
+      <div class="legal-badges-wrap">
+        <span class="legal-badge accent">📅 Effective: January 26, 2026</span>
+        <span class="legal-badge">🔄 Last Updated: October 2026</span>
+        <span class="legal-badge">🏢 MSME: UDYAM-TN-03-0309835</span>
+        <span class="legal-badge">🧾 GSTIN: 33AEIPI4136F1ZV</span>
+        <span class="legal-badge whatsapp">💬 WhatsApp Channel Rules Included</span>
+        <span class="legal-badge">⚖️ Jurisdiction: Coimbatore, India</span>
+      </div>
+
+      <div class="legal-actions-bar">
+        <div class="legal-doc-switch" role="tablist" aria-label="Legal documents">
+          <a href="/privacy-policy" class="legal-switch-btn" role="tab" aria-selected="false">Privacy Policy</a>
+          <a href="/terms-of-use" class="legal-switch-btn active" role="tab" aria-selected="true">Terms of Use</a>
+        </div>
+        <button type="button" class="legal-action-btn" onclick="window.print()" title="Print document">
+          🖨️ Print
+        </button>
+        <button type="button" class="legal-action-btn" onclick="copyLegalLink()" title="Copy link to clipboard">
+          🔗 Share
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT WRAPPER -->
+<div class="legal-page-wrap">
+  <div class="legal-container">
+    
+    <!-- STICKY SIDEBAR -->
+    <aside class="legal-sidebar" aria-label="Table of contents">
+      <div class="legal-toc-card">
+        <div class="legal-toc-header">
+          <span>Table of Contents</span>
+          <span style="font-family:'Orbitron',monospace;font-size:0.75rem;color:var(--red)">14 SECTIONS</span>
+        </div>
+
+        <div class="legal-search-box">
+          <span class="legal-search-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="legalSearchInput" placeholder="Filter terms (e.g. WhatsApp)..." aria-label="Filter terms">
+        </div>
+
+        <div class="legal-toc-nav">
+          <ul class="legal-toc-list" id="legalTocList">
+            <li><a href="#acceptance-terms" class="legal-toc-link"><span class="legal-toc-num">01</span><span>Acceptance of Terms</span></a></li>
+            <li><a href="#user-eligibility" class="legal-toc-link"><span class="legal-toc-num">02</span><span>User Eligibility</span></a></li>
+            <li><a href="#services-overview" class="legal-toc-link"><span class="legal-toc-num">03</span><span>Scope of Services</span></a></li>
+            <li><a href="#acceptable-use" class="legal-toc-link"><span class="legal-toc-num">04</span><span>Acceptable Use Policy</span></a></li>
+            <li><a href="#whatsapp-usage-terms" class="legal-toc-link" style="color:var(--red);font-weight:600"><span class="legal-toc-num">05</span><span>WhatsApp Automation Rules ★</span></a></li>
+            <li><a href="#intellectual-property" class="legal-toc-link"><span class="legal-toc-num">06</span><span>Intellectual Property</span></a></li>
+            <li><a href="#client-datasets" class="legal-toc-link"><span class="legal-toc-num">07</span><span>Client Datasets &amp; NDAs</span></a></li>
+            <li><a href="#third-party-services" class="legal-toc-link"><span class="legal-toc-num">08</span><span>Third-Party Services</span></a></li>
+            <li><a href="#disclaimers-warranties" class="legal-toc-link"><span class="legal-toc-num">09</span><span>Warranties &amp; Disclaimers</span></a></li>
+            <li><a href="#limitation-liability" class="legal-toc-link"><span class="legal-toc-num">10</span><span>Limitation of Liability</span></a></li>
+            <li><a href="#indemnification" class="legal-toc-link"><span class="legal-toc-num">11</span><span>Indemnification</span></a></li>
+            <li><a href="#governing-law" class="legal-toc-link"><span class="legal-toc-num">12</span><span>Governing Law &amp; Courts</span></a></li>
+            <li><a href="#modifications-termination" class="legal-toc-link"><span class="legal-toc-num">13</span><span>Modifications to Terms</span></a></li>
+            <li><a href="#contact-notices" class="legal-toc-link"><span class="legal-toc-num">14</span><span>Contact &amp; Official Notice</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="legal-side-card">
+        <h4>GWU Technologies</h4>
+        <p>1/151A, Veerapandi Road, Chinnathadagam, Coimbatore, Tamil Nadu - 641108.</p>
+        <p style="margin-bottom:0.75rem;font-size:0.78rem;color:rgba(255,255,255,0.7)">
+          <span>Udyam: <strong>UDYAM-TN-03-0309835</strong></span><br>
+          <span style="color:var(--red);font-weight:600">GSTIN: 33AEIPI4136F1ZV</span>
+        </p>
+        <a href="#contact-notices" class="side-contact-link">Contact Legal Desk →</a>
+      </div>
+    </aside>
+
+    <!-- DOCUMENT BODY -->
+    <main class="legal-content">
+      
+      <!-- EXECUTIVE SUMMARY -->
+      <div class="legal-summary-card">
+        <div class="legal-summary-title">
+          <span>⚡ Key Highlights of our Terms</span>
+        </div>
+        <div class="legal-summary-grid">
+          <div class="summary-item">
+            <div class="summary-item-icon">🤝</div>
+            <h5>Binding Agreement</h5>
+            <p>Accessing our website, AI demos, or communicating with us signifies acceptance of these guidelines.</p>
+          </div>
+          <div class="summary-item">
+            <div class="summary-item-icon">💬</div>
+            <h5>WhatsApp Channel Rules</h5>
+            <p>Automated WhatsApp channels are for legitimate queries. Bot replies are informative; abuse leads to immediate blocking.</p>
+          </div>
+          <div class="summary-item">
+            <div class="summary-item-icon">💡</div>
+            <h5>Proprietary Tech</h5>
+            <p>All AI Inspector models, machine vision designs, code, and graphics remain the exclusive property of GWU Technologies.</p>
+          </div>
+          <div class="summary-item">
+            <div class="summary-item-icon">⚙️</div>
+            <h5>Human-in-the-Loop</h5>
+            <p>Our AI inspection platform is an assistive decision-support tool designed for industrial human oversight.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 01 -->
+      <section id="acceptance-terms" class="legal-section">
+        <span class="section-badge">SECTION 01</span>
+        <h2>1. Acceptance of Terms &amp; Scope of Agreement</h2>
+        <p>
+          Welcome to GWU Technologies ("<strong>GWU Technologies</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>"). These Terms of Use ("<strong>Terms</strong>") constitute a legally binding agreement between you (whether an individual user, authorized corporate representative, or prospective client) and GWU Technologies, operating from <strong>1/151A, Veerapandi Road, Chinnathadagam, Coimbatore, Tamil Nadu - 641108</strong>, officially registered as a Micro Enterprise under India's Ministry of Micro, Small and Medium Enterprises (MSME Registration No: <strong>UDYAM-TN-03-0309835</strong>; GSTIN: <strong>33AEIPI4136F1ZV</strong>).
+        </p>
+        <p>
+          By accessing, browsing, interacting with our website (<a href="https://www.gwutechnologies.com" target="_blank" rel="noopener">www.gwutechnologies.com</a>), testing demo instances of our AI Inspector platform, submitting contact forms, or communicating with us through our <strong>automated WhatsApp query assistant</strong>, you acknowledge that you have read, understood, and agreed to be bound by these Terms and our companion <a href="/privacy-policy" style="color:var(--red);font-weight:600">Privacy Policy</a>.
+        </p>
+        <p>
+          If you do not agree to all terms and conditions set forth herein, you must immediately discontinue use of this website and terminate any interaction with our automated communication channels.
+        </p>
+      </section>
+
+      <!-- SECTION 02 -->
+      <section id="user-eligibility" class="legal-section">
+        <span class="section-badge">SECTION 02</span>
+        <h2>2. User Eligibility &amp; Corporate Authority</h2>
+        <p>
+          By using our website and services, you represent and warrant that:
+        </p>
+        <ul>
+          <li>You are at least 18 years of age and possess the legal capacity under applicable law to enter into binding contractual commitments.</li>
+          <li>If you are accessing or using our services on behalf of a company, corporation, academic institution, or commercial entity, you have the full legal authority to bind that entity to these Terms.</li>
+          <li>All information you submit through contact forms, demo requests, or WhatsApp communications is truthful, accurate, and current.</li>
+          <li>Your use of our digital platforms does not violate any applicable local, state, national, or international law or regulation.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 03 -->
+      <section id="services-overview" class="legal-section">
+        <span class="section-badge">SECTION 03</span>
+        <h2>3. Scope of Services &amp; Nature of Web Content</h2>
+        <p>
+          GWU Technologies specializes in computer vision, human-in-the-loop artificial intelligence, and advanced industrial automation solutions. Our core offerings include:
+        </p>
+        <ul>
+          <li><strong>AI Inspector Platform:</strong> A human-in-the-loop inspection platform enabling manufacturing industries to train custom defect detection models, test inspection feeds in real time, and deploy to edge hardware.</li>
+          <li><strong>Machine Vision Hardware &amp; Accessories:</strong> Custom lighting rigs, mounting fixtures, trigger sensors, and optical accessories engineered for industrial quality control.</li>
+          <li><strong>Bespoke Software Development:</strong> Custom full-stack web, cloud, and edge software architectures tailored to enterprise clients.</li>
+          <li><strong>Virtual Education &amp; Skill Development:</strong> Online training curricula covering industrial AI fundamentals, machine vision, and applied software engineering.</li>
+          <li><strong>Applied R&amp;D Consulting:</strong> Technical advisory services in scientific computing, defect analytics, and factory automation.</li>
+        </ul>
+        <p>
+          <em>Informational Nature:</em> Content published on our website — including feature descriptions, simulation animations, specifications, and news updates — is provided for general informational and marketing purposes. Such descriptions do not constitute formal commercial warranties or binding technical representations until formalized within an executed Master Services Agreement (MSA), Statement of Work (SOW), or commercial Purchase Order.
+        </p>
+      </section>
+
+      <!-- SECTION 04 -->
+      <section id="acceptable-use" class="legal-section">
+        <span class="section-badge">SECTION 04</span>
+        <h2>4. Acceptable Use Policy &amp; Prohibited Conduct</h2>
+        <p>
+          You agree to utilize our website, online demonstrations, and communication channels solely for lawful, legitimate industrial exploration and business purposes. You explicitly agree <strong>not</strong> to:
+        </p>
+        <ul>
+          <li><strong>Reverse Engineering:</strong> Decompile, reverse engineer, disassemble, extract source code, or attempt to derive underlying neural network architectures or model weights from any GWU Technologies software or inspection demo.</li>
+          <li><strong>Automated Scraping:</strong> Use any automated robot, spider, scraper, deep-link, or data extraction algorithm to harvest, monitor, or index any portion of our website without prior written authorization.</li>
+          <li><strong>Security Breaches:</strong> Probe, scan, or test the vulnerability of our web servers, database endpoints, or authentication mechanisms, or bypass any rate-limiting, firewall, or security measures.</li>
+          <li><strong>Malicious Code:</strong> Upload, inject, or transmit any viruses, worms, Trojan horses, or malicious payloads through form fields or messaging endpoints.</li>
+          <li><strong>Infringement &amp; Misrepresentation:</strong> Impersonate GWU Technologies, our founders, or employees, or misrepresent an affiliation, sponsorship, or endorsement.</li>
+          <li><strong>Denial of Service:</strong> Engage in conduct that causes excessive load, disruption, or denial of service on our hosting or messaging infrastructure.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 05: WHATSAPP AUTOMATION RULES -->
+      <section id="whatsapp-usage-terms" class="legal-section">
+        <span class="section-badge">SECTION 05</span>
+        <h2>5. WhatsApp Automation &amp; Interactive Channel Guidelines</h2>
+        <p>
+          GWU Technologies provides automated WhatsApp messaging capabilities to streamline preliminary inquiry handling, demo booking, customer support triage, and product documentation delivery.
+        </p>
+
+        <!-- SPOTLIGHT CARD -->
+        <div class="whatsapp-spotlight">
+          <div class="whatsapp-spotlight-head">
+            <div class="whatsapp-icon-circle" aria-hidden="true">💬</div>
+            <div>
+              <h3>WhatsApp Automated Channel Code of Conduct</h3>
+              <span class="badge-auto">Official Business Communication</span>
+            </div>
+          </div>
+          <p style="margin-bottom:1rem;color:#2c333f;font-size:0.95rem">
+            By interacting with GWU Technologies via our official WhatsApp business number, you agree to comply with the following operational rules:
+          </p>
+
+          <div class="whatsapp-grid">
+            <div class="wa-card">
+              <h4><span>1.</span> Legitimate Business Queries Only</h4>
+              <p>
+                Our WhatsApp assistant is designated exclusively for inquiries regarding AI Inspector, machine vision hardware, enterprise software, virtual education, and commercial collaborations.
+              </p>
+            </div>
+
+            <div class="wa-card">
+              <h4><span>2.</span> Prohibition of Bot Flooding &amp; Abuse</h4>
+              <p>
+                You may not send automated scripts, spam blasts, chain messages, abusive language, or unsolicited commercial promotions to our WhatsApp endpoints.
+              </p>
+            </div>
+
+            <div class="wa-card">
+              <h4><span>3.</span> Informational, Non-Binding Responses</h4>
+              <p>
+                Replies generated by automated chatbots are preliminary and informational. They do not constitute binding engineering guarantees, price locks, or contract sign-offs.
+              </p>
+            </div>
+
+            <div class="wa-card">
+              <h4><span>4.</span> Right to Block &amp; Blacklist</h4>
+              <p>
+                We reserve the absolute right to block or blacklist any telephone number that transmits harassment, spam, fraudulent inquiries, or malicious payloads without notice.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3>A. Nature of Automated Chatbot Responses</h3>
+        <p>
+          When you message our WhatsApp channel, our automated conversational triage systems analyze your query to provide instantaneous FAQ answers, technical datasheets, or schedule demo appointments.
+        </p>
+        <p>
+          <strong>Notice:</strong> While we engineer our conversational systems for high accuracy, automated replies are computer-generated summaries. Binding pricing, formal inspection accuracy benchmarks, and delivery schedules require written confirmation signed by an authorized executive of GWU Technologies.
+        </p>
+
+        <h3>B. Requesting Live Engineering Assistance</h3>
+        <p>
+          If your inquiry requires complex industrial feasibility review (such as high-speed conveyor cycle times or specialized camera optical calculations), you may ask the automated assistant to escalate your chat to a <strong>live human engineer</strong>. Our engineering desk in Coimbatore will respond during standard business operating hours (IST).
+        </p>
+
+        <h3>C. Opt-Out &amp; Termination of Automated Messages</h3>
+        <p>
+          You may unsubscribe from automated notifications and follow-ups at any time by messaging <span class="wa-keyword-badge">STOP</span>, <span class="wa-keyword-badge">UNSUBSCRIBE</span>, or <span class="wa-keyword-badge">QUIT</span>. Upon processing, you will receive no further automated messages unless you initiate a new inquiry.
+        </p>
+      </section>
+
+      <!-- SECTION 06 -->
+      <section id="intellectual-property" class="legal-section">
+        <span class="section-badge">SECTION 06</span>
+        <h2>6. Intellectual Property Rights</h2>
+        <p>
+          All intellectual property rights associated with the website, brand assets, and proprietary technologies belong exclusively to GWU Technologies or our licensors:
+        </p>
+        <ul>
+          <li><strong>Trademarks &amp; Brand Identity:</strong> The names "GWU Technologies", "AI Inspector", the GWU Technologies logos, the motto "Love · Wisdom · Service", and associated slogans are proprietary trademarks of GWU Technologies. Unauthorized reproduction or commercial use is strictly prohibited.</li>
+          <li><strong>Proprietary Software &amp; Algorithms:</strong> All algorithms, computer vision pipelines, neural network weights, UI animations, circuit board (PCB) SVG illustrations, front-end code, backend APIs, and database schemas are protected by Indian and international copyright and trade secret laws.</li>
+          <li><strong>Website Content:</strong> All texts, graphics, case studies, product documentation, icons, images, and audio/video materials are copyrighted by GWU Technologies. You may view and print single copies solely for internal informational purposes in evaluating our solutions.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 07 -->
+      <section id="client-datasets" class="legal-section">
+        <span class="section-badge">SECTION 07</span>
+        <h2>7. Client Datasets, Industrial Samples &amp; NDAs</h2>
+        <p>
+          We deeply respect the proprietary nature of industrial manufacturing. When prospective or contracted clients provide physical parts, defect samples, camera feeds, CAD drawings, or manufacturing imagery for AI model validation:
+        </p>
+        <ul>
+          <li><strong>Client Ownership:</strong> You retain sole and exclusive ownership of all proprietary manufacturing samples, product blueprints, and raw image datasets provided to us.</li>
+          <li><strong>Non-Disclosure Protections:</strong> All confidential project disclosures are protected under mutual Non-Disclosure Agreements (NDAs). GWU Technologies will never share client defect imagery or proprietary product data with external competitors or public repositories.</li>
+          <li><strong>Permitted Model Usage:</strong> Unless otherwise specified in a custom agreement, GWU Technologies uses client samples solely for the explicit purpose of training, tuning, and validating custom models for that specific client.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 08 -->
+      <section id="third-party-services" class="legal-section">
+        <span class="section-badge">SECTION 08</span>
+        <h2>8. Third-Party Services &amp; External Links</h2>
+        <p>
+          Our website and automated communication workflows may integrate with or link to third-party services, including:
+        </p>
+        <ul>
+          <li>Meta Platforms / WhatsApp Business Cloud API for automated messaging.</li>
+          <li>Cloud hosting, content delivery networks, and email delivery providers.</li>
+          <li>Institutional portals, including Sri Ramakrishna Institute of Technology (SRIT) and government MSME registration frameworks.</li>
+        </ul>
+        <p>
+          GWU Technologies does not endorse, control, or assume responsibility for the content, privacy policies, or terms of third-party platforms. Your interaction with third-party tools is governed by their respective terms of service.
+        </p>
+      </section>
+
+      <!-- SECTION 09 -->
+      <section id="disclaimers-warranties" class="legal-section">
+        <span class="section-badge">SECTION 09</span>
+        <h2>9. Warranties &amp; Disclaimers</h2>
+        <p>
+          <strong>"AS IS" AND "AS AVAILABLE" PROVISION:</strong> The website, its content, interactive demonstrations, and automated WhatsApp responses are provided on an "as is" and "as available" basis, without warranties of any kind, whether express, statutory, or implied.
+        </p>
+        <ul>
+          <li>We disclaim all implied warranties of merchantability, fitness for a particular industrial purpose, title, and non-infringement to the fullest extent permitted by law.</li>
+          <li>We do not warrant that website functions will be uninterrupted, error-free, completely secure, or free from server glitches or transmission delays.</li>
+          <li><strong>Human-in-the-Loop Industrial Disclaimer:</strong> AI Inspector is engineered as a high-precision, human-in-the-loop decision-support platform. While our vision algorithms achieve state-of-the-art defect detection accuracy, real-world inspection efficacy is subject to environmental variables (lighting, vibration, lens cleanliness, part presentation). Final quality assurance oversight remains the responsibility of the client's quality personnel, in accordance with applicable industrial standards.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 10 -->
+      <section id="limitation-liability" class="legal-section">
+        <span class="section-badge">SECTION 10</span>
+        <h2>10. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by applicable Indian law:
+        </p>
+        <ul>
+          <li>In no event shall GWU Technologies, its founders, directors, employees, affiliates, or academic incubation partners be liable for any indirect, incidental, special, consequential, punitive, or exemplary damages, including but not limited to loss of profits, production downtime, data loss, business interruption, or machinery damage, arising out of or in connection with your use of or inability to use this website, software demos, or automated messaging channels.</li>
+          <li>In any circumstance, the aggregate cumulative liability of GWU Technologies arising out of these Terms or website usage shall be limited to the amount paid by you, if any, to GWU Technologies for accessing the website during the preceding twelve (12) months, or INR 1,000 (Indian Rupees One Thousand), whichever is less.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 11 -->
+      <section id="indemnification" class="legal-section">
+        <span class="section-badge">SECTION 11</span>
+        <h2>11. Indemnification</h2>
+        <p>
+          You agree to defend, indemnify, and hold harmless GWU Technologies, its founders, officers, directors, employees, licensors, and incubation partners from and against any claims, liabilities, damages, judgments, losses, costs, or expenses (including reasonable legal fees) resulting from:
+        </p>
+        <ul>
+          <li>Your breach or alleged violation of these Terms.</li>
+          <li>Your misuse of our website, AI Inspector demo tools, or automated WhatsApp communication endpoints.</li>
+          <li>Your violation of any third-party intellectual property, privacy, or proprietary rights.</li>
+          <li>Any unlawful, defamatory, or harmful content submitted by you through our forms or messaging channels.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 12 -->
+      <section id="governing-law" class="legal-section">
+        <span class="section-badge">SECTION 12</span>
+        <h2>12. Governing Law &amp; Dispute Resolution</h2>
+        <p>
+          These Terms and any dispute, controversy, or claim arising out of or related to them shall be governed by, construed, and enforced in accordance with the <strong>laws of the Republic of India</strong>, without giving effect to conflict of laws principles.
+        </p>
+        <ul>
+          <li><strong>Amicable Negotiation:</strong> In the event of any dispute, controversy, or difference arising between the parties, the parties agree to first attempt resolution through good-faith amicable consultation within thirty (30) days of written notice.</li>
+          <li><strong>Exclusive Jurisdiction:</strong> Subject to the amicable dispute resolution process, you irrevocably agree that the courts of competent jurisdiction located in <strong>Coimbatore, Tamil Nadu, India</strong> shall have exclusive jurisdiction to settle any legal proceedings or suits arising out of or in connection with these Terms or website interactions.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 13 -->
+      <section id="modifications-termination" class="legal-section">
+        <span class="section-badge">SECTION 13</span>
+        <h2>13. Modifications to Terms &amp; Severability</h2>
+        <p>
+          GWU Technologies reserves the right to modify, amend, or update these Terms at any time in its sole discretion. Any revisions will become effective immediately upon posting to this page, with the "Last Updated" date revised accordingly.
+        </p>
+        <p>
+          Your continued use of our website or automated communication channels following the posting of revised Terms constitutes your acceptance of and agreement to the modifications.
+        </p>
+        <p>
+          <em>Severability:</em> If any provision of these Terms is determined by a court of competent jurisdiction to be invalid, illegal, or unenforceable, that provision shall be enforced to the maximum extent permissible, and the remaining provisions shall remain in full force and effect.
+        </p>
+      </section>
+
+      <!-- SECTION 14 -->
+      <section id="contact-notices" class="legal-section">
+        <span class="section-badge">SECTION 14</span>
+        <h2>14. Contact Information &amp; Official Notice</h2>
+        <p>
+          If you have any questions, inquiries, or legal notices concerning these Terms of Use, please reach out to our legal and administrative desk:
+        </p>
+
+        <!-- GRIEVANCE / CONTACT CARD -->
+        <div class="grievance-card">
+          <h3>GWU Technologies · Legal &amp; Corporate Desk</h3>
+          <p class="subtitle">
+            For inquiries regarding terms, enterprise software licensing, or formal commercial notices:
+          </p>
+          <div class="grievance-grid">
+            <div class="grievance-item">
+              <span class="grievance-label">Corporate Entity</span>
+              <span class="grievance-value">GWU Technologies</span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">MSME Registration</span>
+              <span class="grievance-value" style="color:var(--red)">UDYAM-TN-03-0309835</span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">GSTIN</span>
+              <span class="grievance-value" style="color:var(--red)">33AEIPI4136F1ZV</span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">Official Legal Email</span>
+              <span class="grievance-value"><a href="mailto:ceo@gwutechnologies.com">ceo@gwutechnologies.com</a></span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">Corporate Telephone</span>
+              <span class="grievance-value"><a href="tel:+919677817992">+91 96778 17992</a></span>
+            </div>
+            <div class="grievance-item" style="grid-column:1/-1">
+              <span class="grievance-label">Official Registered Address</span>
+              <span class="grievance-value">
+                GWU Technologies<br>
+                1/151A, Veerapandi Road, Chinnathadagam, Coimbatore, Tamil Nadu - 641108.
+              </span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">Official Website</span>
+              <span class="grievance-value"><a href="https://www.gwutechnologies.com">www.gwutechnologies.com</a></span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">Governing Motto</span>
+              <span class="grievance-value" style="color:var(--red)">Love · Wisdom · Service</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- FLOATING BACK TO TOP BUTTON -->
+<button type="button" class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  ↑
+</button>
+
+<!-- TOAST NOTIFICATION -->
+<div class="copy-toast" id="copyToast" role="status" aria-live="polite">
+  <span>✓ Link copied to clipboard!</span>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  // ── TABLE OF CONTENTS SCROLLSPY ──────────────────────────────────────────
+  const sections = document.querySelectorAll('.legal-section');
+  const tocLinks = document.querySelectorAll('.legal-toc-link');
+
+  function updateActiveToc() {
+    let currentId = '';
+    const scrollPos = window.scrollY + 140;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    if (currentId) {
+      tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+      });
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveToc, { passive: true });
+  updateActiveToc();
+
+  // ── SMOOTH SCROLL FOR TOC LINKS ──────────────────────────────────────────
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.startsWith('#')) {
+        e.preventDefault();
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, null, targetId);
+        }
+      }
+    });
+  });
+
+  // ── LIVE TOC SEARCH FILTER ───────────────────────────────────────────────
+  const searchInput = document.getElementById('legalSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      tocLinks.forEach(link => {
+        const text = link.textContent.toLowerCase();
+        const li = link.closest('li');
+        if (li) {
+          li.style.display = text.includes(query) ? '' : 'none';
+        }
+      });
+    });
+  }
+
+  // ── BACK TO TOP BUTTON ───────────────────────────────────────────────────
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── COPY LINK TO CLIPBOARD ───────────────────────────────────────────────
+  function copyLegalLink() {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showCopyToast();
+      }).catch(() => {
+        fallbackCopy();
+      });
+    } else {
+      fallbackCopy();
+    }
+  }
+
+  function fallbackCopy() {
+    const dummy = document.createElement('input');
+    document.body.appendChild(dummy);
+    dummy.value = window.location.href;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    showCopyToast();
+  }
+
+  function showCopyToast() {
+    const toast = document.getElementById('copyToast');
+    if (toast) {
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+  }
+</script>
+{% endblock %}

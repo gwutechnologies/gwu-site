@@ -1,0 +1,599 @@
+{% extends 'base.html' %}
+{% block title %}Privacy Policy & Data Protection – GWU Technologies{% endblock %}
+
+{% block content %}
+<!-- HERO -->
+<section class="legal-hero">
+  <div class="legal-hero-bg"></div>
+  <div class="legal-hero-inner">
+    <div class="legal-breadcrumbs">
+      <a href="/">Home</a>
+      <span class="bc-sep">/</span>
+      <span>Legal</span>
+      <span class="bc-sep">/</span>
+      <span class="bc-curr">Privacy Policy</span>
+    </div>
+
+    <h1 class="legal-hero-title">Privacy <em>Policy</em></h1>
+    <p class="legal-hero-desc">
+      How GWU Technologies collects, protects, uses, and governs your information across our website, industrial AI solutions, and automated communication channels.
+    </p>
+
+    <div class="legal-meta-bar">
+      <div class="legal-badges-wrap">
+        <span class="legal-badge accent">📅 Effective: January 26, 2026</span>
+        <span class="legal-badge">🔄 Last Updated: October 2026</span>
+        <span class="legal-badge">🏢 MSME: UDYAM-TN-03-0309835</span>
+        <span class="legal-badge">🧾 GSTIN: 33AEIPI4136F1ZV</span>
+        <span class="legal-badge whatsapp">💬 WhatsApp Automation Included</span>
+        <span class="legal-badge">🛡️ DPDPA 2023 &amp; IT Act Compliant</span>
+      </div>
+
+      <div class="legal-actions-bar">
+        <div class="legal-doc-switch" role="tablist" aria-label="Legal documents">
+          <a href="/privacy-policy" class="legal-switch-btn active" role="tab" aria-selected="true">Privacy Policy</a>
+          <a href="/terms-of-use" class="legal-switch-btn" role="tab" aria-selected="false">Terms of Use</a>
+        </div>
+        <button type="button" class="legal-action-btn" onclick="window.print()" title="Print document">
+          🖨️ Print
+        </button>
+        <button type="button" class="legal-action-btn" onclick="copyLegalLink()" title="Copy link to clipboard">
+          🔗 Share
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT WRAPPER -->
+<div class="legal-page-wrap">
+  <div class="legal-container">
+    
+    <!-- STICKY SIDEBAR -->
+    <aside class="legal-sidebar" aria-label="Table of contents">
+      <div class="legal-toc-card">
+        <div class="legal-toc-header">
+          <span>Table of Contents</span>
+          <span style="font-family:'Orbitron',monospace;font-size:0.75rem;color:var(--red)">13 SECTIONS</span>
+        </div>
+
+        <div class="legal-search-box">
+          <span class="legal-search-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="legalSearchInput" placeholder="Filter sections (e.g. WhatsApp)..." aria-label="Filter sections">
+        </div>
+
+        <div class="legal-toc-nav">
+          <ul class="legal-toc-list" id="legalTocList">
+            <li><a href="#intro-scope" class="legal-toc-link"><span class="legal-toc-num">01</span><span>Introduction &amp; Scope</span></a></li>
+            <li><a href="#information-collected" class="legal-toc-link"><span class="legal-toc-num">02</span><span>Information We Collect</span></a></li>
+            <li><a href="#whatsapp-policy" class="legal-toc-link" style="color:var(--red);font-weight:600"><span class="legal-toc-num">03</span><span>WhatsApp Query Automation ★</span></a></li>
+            <li><a href="#usage-purposes" class="legal-toc-link"><span class="legal-toc-num">04</span><span>How We Use Information</span></a></li>
+            <li><a href="#legal-bases" class="legal-toc-link"><span class="legal-toc-num">05</span><span>Legal Bases for Processing</span></a></li>
+            <li><a href="#cookies-tracking" class="legal-toc-link"><span class="legal-toc-num">06</span><span>Cookies &amp; Telemetry</span></a></li>
+            <li><a href="#data-sharing" class="legal-toc-link"><span class="legal-toc-num">07</span><span>Data Sharing &amp; Third Parties</span></a></li>
+            <li><a href="#security-storage" class="legal-toc-link"><span class="legal-toc-num">08</span><span>Data Security &amp; Storage</span></a></li>
+            <li><a href="#retention-period" class="legal-toc-link"><span class="legal-toc-num">09</span><span>Data Retention Periods</span></a></li>
+            <li><a href="#user-rights" class="legal-toc-link"><span class="legal-toc-num">10</span><span>Your Data Protection Rights</span></a></li>
+            <li><a href="#children-privacy" class="legal-toc-link"><span class="legal-toc-num">11</span><span>Children's Privacy</span></a></li>
+            <li><a href="#grievance-officer" class="legal-toc-link"><span class="legal-toc-num">12</span><span>Grievance Officer &amp; Contact</span></a></li>
+            <li><a href="#policy-updates" class="legal-toc-link"><span class="legal-toc-num">13</span><span>Updates to this Policy</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="legal-side-card">
+        <h4>GWU Technologies</h4>
+        <p>1/151A, Veerapandi Road, Chinnathadagam, Coimbatore, Tamil Nadu - 641108.</p>
+        <p style="margin-bottom:0.75rem;font-size:0.78rem;color:rgba(255,255,255,0.7)">
+          <span>Udyam: <strong>UDYAM-TN-03-0309835</strong></span><br>
+          <span style="color:var(--red);font-weight:600">GSTIN: 33AEIPI4136F1ZV</span>
+        </p>
+        <a href="#grievance-officer" class="side-contact-link">Contact Grievance Desk →</a>
+      </div>
+    </aside>
+
+    <!-- DOCUMENT BODY -->
+    <main class="legal-content">
+      
+      <!-- EXECUTIVE SUMMARY -->
+      <div class="legal-summary-card">
+        <div class="legal-summary-title">
+          <span>⚡ Executive Summary &amp; Core Commitments</span>
+        </div>
+        <div class="legal-summary-grid">
+          <div class="summary-item">
+            <div class="summary-item-icon">🚫</div>
+            <h5>Zero Data Selling</h5>
+            <p>We do not sell, rent, or trade your personal or industrial data to advertising brokers or marketers under any circumstances.</p>
+          </div>
+          <div class="summary-item">
+            <div class="summary-item-icon">💬</div>
+            <h5>WhatsApp Automation</h5>
+            <p>We use automated WhatsApp chatbots for fast query triage. You can opt out at any time simply by replying <strong>STOP</strong>.</p>
+          </div>
+          <div class="summary-item">
+            <div class="summary-item-icon">🔒</div>
+            <h5>Industrial Confidentiality</h5>
+            <p>Client manufacturing datasets, inspection images, and CAD files are handled under strict non-disclosure safeguards.</p>
+          </div>
+          <div class="summary-item">
+            <div class="summary-item-icon">⚖️</div>
+            <h5>Statutory Compliance</h5>
+            <p>Strictly compliant with India's Digital Personal Data Protection Act (DPDPA 2023) and Information Technology Act 2000.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 01 -->
+      <section id="intro-scope" class="legal-section">
+        <span class="section-badge">SECTION 01</span>
+        <h2>1. Introduction &amp; Corporate Scope</h2>
+        <p>
+          GWU Technologies ("<strong>GWU Technologies</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>") is an innovative technology enterprise operating from <strong>1/151A, Veerapandi Road, Chinnathadagam, Coimbatore, Tamil Nadu - 641108</strong>, officially registered as a Micro Enterprise under India's Ministry of Micro, Small and Medium Enterprises (MSME Registration No: <strong>UDYAM-TN-03-0309835</strong>; GSTIN: <strong>33AEIPI4136F1ZV</strong>).
+        </p>
+        <p>
+          Guided by our foundational philosophy — <em>Love, Wisdom, Service</em> — we are committed to safeguarding the privacy, confidentiality, and integrity of the personal information and industrial data entrusted to us. This Privacy Policy outlines the types of information we collect, the rationale and mechanisms of processing, our data retention and security measures, and your rights under applicable privacy legislation, including the <strong>Digital Personal Data Protection Act, 2023 (DPDPA)</strong>, the <strong>Information Technology Act, 2000</strong>, and the <strong>Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011 (SPDI Rules)</strong>.
+        </p>
+        <p>
+          This policy applies to information collected through our official website (<a href="https://www.gwutechnologies.com" target="_blank" rel="noopener">www.gwutechnologies.com</a>), our AI Inspector platform, our software development and consulting services, our virtual education offerings, our email communications, and our <strong>automated WhatsApp communication and query channels</strong>.
+        </p>
+      </section>
+
+      <!-- SECTION 02 -->
+      <section id="information-collected" class="legal-section">
+        <span class="section-badge">SECTION 02</span>
+        <h2>2. Information We Collect</h2>
+        <p>
+          We collect personal and technical information only to the extent necessary to provide our industrial AI solutions, answer inquiries, fulfill service agreements, and enhance your digital experience.
+        </p>
+
+        <h3>A. Information You Provide Voluntarily</h3>
+        <ul>
+          <li><strong>Identity and Contact Data:</strong> Full name, professional designation, organization or company name, business email address, telephone/mobile number, and mailing address provided via our contact forms, newsletter sign-ups, or demo requests.</li>
+          <li><strong>Inquiry and Project Details:</strong> Information describing your industrial inspection requirements, production line setup, machine vision accessories of interest, R&amp;D consulting specifications, or virtual education enrollment requests.</li>
+          <li><strong>Correspondence Data:</strong> Records of communications transmitted via our website contact form, direct emails, phone calls, or official WhatsApp messaging channels.</li>
+        </ul>
+
+        <h3>B. Industrial &amp; Technical Project Data</h3>
+        <p>
+          When prospective or contracted clients engage GWU Technologies for feasibility analysis or model training on our <strong>AI Inspector</strong> platform, we may receive:
+        </p>
+        <ul>
+          <li>Sample inspection imagery, defect classification parameters, optical setup specifications, and production line tolerances.</li>
+          <li>Such industrial datasets are processed strictly in accordance with client Master Service Agreements (MSAs) and Non-Disclosure Agreements (NDAs).</li>
+        </ul>
+
+        <h3>C. Information Collected Automatically</h3>
+        <ul>
+          <li><strong>Technical and Device Telemetry:</strong> Internet Protocol (IP) address, operating system, browser type and version, language preferences, device identifiers, and network information.</li>
+          <li><strong>Usage and Interaction Data:</strong> Pages viewed, referring URLs, timestamps of visits, dwell time, and interaction with interactive elements (such as simulation widgets and animations).</li>
+        </ul>
+
+        <div class="legal-table-wrap">
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Category of Data</th>
+                <th>Source</th>
+                <th>Primary Purpose</th>
+                <th>Retention Window</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Contact Identifiers</strong></td>
+                <td>Contact forms, email, WhatsApp</td>
+                <td>Responding to queries, scheduling demos, service fulfillment</td>
+                <td>Duration of business relationship + 3 years</td>
+              </tr>
+              <tr>
+                <td><strong>WhatsApp Inquiries</strong></td>
+                <td>Direct WhatsApp conversations</td>
+                <td>24/7 automated query triage, support ticketing</td>
+                <td>Up to 24 months (or until opt-out)</td>
+              </tr>
+              <tr>
+                <td><strong>Industrial Project Imagery</strong></td>
+                <td>Client upload under NDA</td>
+                <td>Model training, defect detection, feasibility testing</td>
+                <td>Governed strictly by Client Service Agreement</td>
+              </tr>
+              <tr>
+                <td><strong>Website Telemetry</strong></td>
+                <td>Automated server logs &amp; cookies</td>
+                <td>System diagnostics, security monitoring, UX optimization</td>
+                <td>Up to 90 days in rolling server logs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 03: WHATSAPP AUTOMATION -->
+      <section id="whatsapp-policy" class="legal-section">
+        <span class="section-badge">SECTION 03</span>
+        <h2>3. WhatsApp Automation &amp; Query Processing Policy</h2>
+        <p>
+          To provide prompt, round-the-clock service to industrial clients, partners, and visitors, GWU Technologies utilizes automated messaging and artificial intelligence triage workflows via the official <strong>WhatsApp Business Platform</strong>.
+        </p>
+
+        <!-- SPOTLIGHT CARD -->
+        <div class="whatsapp-spotlight">
+          <div class="whatsapp-spotlight-head">
+            <div class="whatsapp-icon-circle" aria-hidden="true">💬</div>
+            <div>
+              <h3>Automated WhatsApp Communication Guidelines</h3>
+              <span class="badge-auto">Automated &amp; Human-in-the-Loop Triage</span>
+            </div>
+          </div>
+          <p style="margin-bottom:1rem;color:#2c333f;font-size:0.95rem">
+            We respect your communication preferences. Below are the governing policies for all WhatsApp interactions conducted with GWU Technologies:
+          </p>
+
+          <div class="whatsapp-grid">
+            <div class="wa-card">
+              <h4><span>1.</span> Explicit Opt-In &amp; Inbound Initiation</h4>
+              <p>
+                We only initiate WhatsApp communications when you have voluntarily contacted our official WhatsApp number, clicked a "Chat on WhatsApp" button, or consented to receive WhatsApp updates through our web contact form.
+              </p>
+            </div>
+
+            <div class="wa-card">
+              <h4><span>2.</span> Automated AI Chatbots &amp; Live Handoff</h4>
+              <p>
+                Initial query categorization, FAQ answers, and product overviews are delivered via automated bots. You can request a <strong>live human engineer</strong> at any point in the conversation for complex technical evaluations.
+              </p>
+            </div>
+
+            <div class="wa-card">
+              <h4><span>3.</span> Universal Opt-Out ("STOP")</h4>
+              <p>
+                You may revoke consent and stop receiving automated WhatsApp notifications at any time. Simply reply with <span class="wa-keyword-badge">STOP</span>, <span class="wa-keyword-badge">UNSUBSCRIBE</span>, or <span class="wa-keyword-badge">QUIT</span> in the chat.
+              </p>
+            </div>
+
+            <div class="wa-card">
+              <h4><span>4.</span> Zero Third-Party Marketing</h4>
+              <p>
+                Your telephone number and WhatsApp chat history will never be shared, sold, or leased to third-party advertisers or external marketing networks.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3>A. Scope of WhatsApp Data Processing</h3>
+        <p>When you communicate with us via WhatsApp, we process:</p>
+        <ul>
+          <li>Your telephone number, country code, and WhatsApp public profile name.</li>
+          <li>Message content, including textual inquiries, queries regarding AI Inspector or machine vision accessories, and any documents, specifications, or images you voluntarily attach.</li>
+          <li>Metadata including message delivery status, read timestamps, and conversational state in our triage queue.</li>
+        </ul>
+
+        <h3>B. Purpose of WhatsApp Processing</h3>
+        <p>Information processed via WhatsApp is used solely for:</p>
+        <ul>
+          <li>Providing instant automated responses to commercial and technical questions.</li>
+          <li>Scheduling product demonstrations and consultation calls.</li>
+          <li>Providing transactional updates regarding active projects, service tickets, or virtual education courses.</li>
+          <li>Routing urgent inquiries to the appropriate technical specialist or executive team member in Coimbatore.</li>
+        </ul>
+
+        <h3>C. Third-Party Infrastructure (Meta Platforms)</h3>
+        <p>
+          WhatsApp Business is provided by Meta Platforms, Inc. Messages transmitted over the WhatsApp network are protected by transport layer encryption and governed by WhatsApp's Business Terms of Service and Privacy Policy. GWU Technologies enforces strict access control credentials to ensure that only authorized technical and support personnel have access to our business messaging dashboard.
+        </p>
+
+        <div class="legal-callout">
+          <h4>💡 How to Opt Out of WhatsApp Communications:</h4>
+          <p>
+            If you no longer wish to receive automated messages, notifications, or follow-ups via WhatsApp, simply message the word <strong>"STOP"</strong> directly to our WhatsApp chat, or email us at <a href="mailto:ceo@gwutechnologies.com" style="color:var(--red);font-weight:600">ceo@gwutechnologies.com</a> with the subject line <em>"WhatsApp Unsubscribe"</em>. Upon receipt, your number will be promptly unsubscribed from automated messaging queues.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 04 -->
+      <section id="usage-purposes" class="legal-section">
+        <span class="section-badge">SECTION 04</span>
+        <h2>4. How We Use Your Information</h2>
+        <p>GWU Technologies uses collected personal and organizational information for the following legitimate business purposes:</p>
+        <ul>
+          <li><strong>Delivering Solutions &amp; Core Services:</strong> Operating the AI Inspector platform, designing custom machine vision setups, providing bespoke software engineering, and executing virtual education courses.</li>
+          <li><strong>Customer Support &amp; Query Resolution:</strong> Addressing technical requests, drafting proposals, issuing service quotes, and maintaining clear communication channels.</li>
+          <li><strong>System Enhancement &amp; Research:</strong> Conducting internal research, debugging application performance, optimizing website load times, and enhancing AI algorithms (using strictly anonymized and aggregated datasets).</li>
+          <li><strong>Commercial Transactions &amp; Billing:</strong> Invoicing, financial record-keeping, and complying with Goods and Services Tax (GST) and MSME statutory requirements in India.</li>
+          <li><strong>Security &amp; Fraud Prevention:</strong> Safeguarding our digital infrastructure against unauthorized intrusions, bot floods, malware, or malicious attacks.</li>
+          <li><strong>Legal &amp; Regulatory Compliance:</strong> Fulfilling obligations mandated by Indian regulatory authorities, law enforcement agencies, or court orders.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 05 -->
+      <section id="legal-bases" class="legal-section">
+        <span class="section-badge">SECTION 05</span>
+        <h2>5. Legal Bases for Processing (DPDPA &amp; Global Frameworks)</h2>
+        <p>We process personal data only when substantiated by recognized legal grounds under applicable law:</p>
+        <ul>
+          <li><strong>Explicit Consent:</strong> Where you have affirmatively given clear consent for a specific purpose (such as submitting an inquiry, consenting to automated WhatsApp messages, or subscribing to company updates). Consent may be withdrawn at any time.</li>
+          <li><strong>Performance of a Contract:</strong> Where processing is necessary to execute an agreement, proposal, non-disclosure agreement, or service contract between your organization and GWU Technologies.</li>
+          <li><strong>Legitimate Interests:</strong> Where processing is necessary for our legitimate commercial operations (e.g., maintaining platform security, answering technical queries, improving product performance), provided such interests do not override your fundamental rights.</li>
+          <li><strong>Compliance with Legal Obligations:</strong> Where processing is mandated by statutory provisions under the laws of the Republic of India.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 06 -->
+      <section id="cookies-tracking" class="legal-section">
+        <span class="section-badge">SECTION 06</span>
+        <h2>6. Cookies &amp; Telemetry Technologies</h2>
+        <p>
+          Our website utilizes standard cookies and local storage tokens to ensure secure, rapid, and dependable website functionality.
+        </p>
+        <ul>
+          <li><strong>Strictly Necessary Cookies:</strong> Essential for navigational routing, form submission validation, session security, and cross-site request forgery (CSRF) defense. These cookies cannot be disabled without impairing core site operations.</li>
+          <li><strong>Functional &amp; Preference Cookies:</strong> Retain user preferences such as navigation states or visual preferences.</li>
+          <li><strong>Performance &amp; Diagnostic Logs:</strong> Capture aggregated, non-personally identifiable diagnostic metrics to evaluate page render speeds, asset caching, and error rates.</li>
+        </ul>
+        <p>
+          You may modify your browser settings to decline or delete cookies at any time. However, disabling essential session cookies may cause certain interactive features of our website to function suboptimally.
+        </p>
+      </section>
+
+      <!-- SECTION 07 -->
+      <section id="data-sharing" class="legal-section">
+        <span class="section-badge">SECTION 07</span>
+        <h2>7. Data Sharing &amp; Third-Party Disclosures</h2>
+        <p>
+          <strong>We never sell, rent, or trade your personal information to third-party data brokers, marketers, or advertisers.</strong>
+        </p>
+        <p>We only share information with trusted third parties under strictly controlled circumstances:</p>
+        <ul>
+          <li><strong>Authorized Service Providers:</strong> Vetted cloud hosting providers, transactional email servers (SMTP), database hosts, and telecommunication infrastructure partners (such as the Meta WhatsApp Business API) who process data on our behalf under strict confidentiality agreements.</li>
+          <li><strong>Academic &amp; Incubation Affiliates:</strong> Collaborative administrative reporting with our host incubation institution — SISH Incubation Centre, Sri Ramakrishna Institute of Technology (SRIT) — strictly limited to aggregated and non-identifiable startup metrics.</li>
+          <li><strong>Legal &amp; Statutory Demands:</strong> We may disclose information if required to do so by applicable law, search warrant, subpoena, or valid order issued by a competent court or governmental agency in India.</li>
+          <li><strong>Business Continuity:</strong> In the event of a merger, acquisition, restructuring, or asset transfer, information may be transferred as an essential business asset, subject to the recipient adhering to equivalent privacy safeguards.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 08 -->
+      <section id="security-storage" class="legal-section">
+        <span class="section-badge">SECTION 08</span>
+        <h2>8. Data Security &amp; Storage Architecture</h2>
+        <p>
+          GWU Technologies implements administrative, technical, and physical security safeguards designed to prevent unauthorized access, disclosure, alteration, or destruction of your information.
+        </p>
+        <ul>
+          <li><strong>Encryption Standards:</strong> Data in transit across our website and APIs is protected via Transport Layer Security (TLS 1.2 / TLS 1.3) with modern cryptographic cipher suites.</li>
+          <li><strong>Access Governance:</strong> Internal access to contact records and technical datasets is restricted strictly on a need-to-know basis, protected by hashed credential storage and multi-factor authentication.</li>
+          <li><strong>Database Integrity:</strong> Production databases are secured within isolated virtual environments with scheduled automated backups and parameter sanitization to protect against SQL injection and data tampering.</li>
+          <li><strong>Vulnerability Management:</strong> Periodic source code audits, dependency tracking, and adherence to OWASP Top 10 web security best practices.</li>
+        </ul>
+        <p>
+          While we maintain stringent security protocols, no method of electronic transmission over the internet or method of digital storage is 100% impervious. In the unlikely event of a security breach affecting personal data, we will notify affected individuals and statutory authorities in accordance with applicable laws.
+        </p>
+      </section>
+
+      <!-- SECTION 09 -->
+      <section id="retention-period" class="legal-section">
+        <span class="section-badge">SECTION 09</span>
+        <h2>9. Data Retention &amp; Disposal Periods</h2>
+        <p>
+          We retain personal data only for the period necessary to fulfill the purposes for which it was gathered, comply with legal, tax, or accounting mandates, or defend against legal claims.
+        </p>
+        <ul>
+          <li><strong>Website Inquiries:</strong> Contact form submissions and general commercial inquiries are retained for up to <strong>24 months</strong> from the date of last contact, after which they are securely expunged or anonymized.</li>
+          <li><strong>WhatsApp Conversation Logs:</strong> Chat history generated through automated triage is retained for up to <strong>24 months</strong> for customer service continuity, or deleted earlier upon verified user request.</li>
+          <li><strong>Contractual Client Records:</strong> Invoices, signed agreements, and service fulfillment records are retained for a minimum of <strong>7 years</strong> in compliance with Indian corporate and taxation statutes.</li>
+          <li><strong>Server Access Logs:</strong> Web server diagnostic telemetry is rotated and cleared automatically within <strong>90 days</strong>.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 10 -->
+      <section id="user-rights" class="legal-section">
+        <span class="section-badge">SECTION 10</span>
+        <h2>10. Your Data Protection Rights</h2>
+        <p>
+          Under the <strong>Digital Personal Data Protection Act, 2023 (DPDPA)</strong> and international data privacy benchmarks, you are entitled to exercise the following rights regarding your personal data:
+        </p>
+        <ul>
+          <li><strong>Right of Access &amp; Summary:</strong> You have the right to request confirmation of whether we process your personal data and obtain a summary of the data held.</li>
+          <li><strong>Right to Correction &amp; Completion:</strong> You may request rectification of inaccurate, incomplete, or out-of-date personal information.</li>
+          <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> You may request the deletion of your personal data where it is no longer required for the purpose for which it was collected, subject to statutory retention obligations.</li>
+          <li><strong>Right to Withdraw Consent:</strong> Where processing is predicated on consent (including marketing and automated WhatsApp updates), you may withdraw consent at any time without affecting past lawful processing.</li>
+          <li><strong>Right of Grievance Redressal:</strong> You have the right to readily available means of grievance redressal regarding our data processing practices.</li>
+          <li><strong>Right to Nominate:</strong> Under DPDPA 2023, you have the right to designate an individual who may exercise your data protection rights in the event of incapacity.</li>
+        </ul>
+        <p>
+          To exercise any of these rights, please contact our <strong>Grievance Officer</strong> using the details provided below. We will review and respond to all verified requests within 30 days.
+        </p>
+      </section>
+
+      <!-- SECTION 11 -->
+      <section id="children-privacy" class="legal-section">
+        <span class="section-badge">SECTION 11</span>
+        <h2>11. Children's Privacy</h2>
+        <p>
+          Our website, industrial machine vision products, and software services are intended exclusively for commercial enterprises, academic researchers, and individuals aged 18 and older. We do not knowingly collect personal information from minors under the age of 18. If you believe a minor has submitted personal information to our systems without appropriate parental consent, please contact us immediately, and we will delete the data without delay.
+        </p>
+      </section>
+
+      <!-- SECTION 12: GRIEVANCE OFFICER -->
+      <section id="grievance-officer" class="legal-section">
+        <span class="section-badge">SECTION 12</span>
+        <h2>12. Grievance Redressal &amp; Contact Desk</h2>
+        <p>
+          Pursuant to the <strong>Information Technology Act, 2000</strong>, the SPDI Rules, 2011, and the <strong>Digital Personal Data Protection Act, 2023</strong>, GWU Technologies has appointed a designated Grievance Officer to oversee data protection inquiries and resolve user concerns expeditiously.
+        </p>
+
+        <!-- GRIEVANCE CARD -->
+        <div class="grievance-card">
+          <h3>Designated Grievance &amp; Compliance Officer</h3>
+          <p class="subtitle">
+            If you have questions, feedback, or grievances regarding our privacy policies, data collection, WhatsApp automation, or wish to exercise your data rights:
+          </p>
+          <div class="grievance-grid">
+            <div class="grievance-item">
+              <span class="grievance-label">Designation</span>
+              <span class="grievance-value">Grievance &amp; Data Protection Desk</span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">Corporate Entity</span>
+              <span class="grievance-value">GWU Technologies</span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">Official Email</span>
+              <span class="grievance-value"><a href="mailto:ceo@gwutechnologies.com">ceo@gwutechnologies.com</a></span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">Direct Telephone</span>
+              <span class="grievance-value"><a href="tel:+919677817992">+91 96778 17992</a></span>
+            </div>
+            <div class="grievance-item" style="grid-column:1/-1">
+              <span class="grievance-label">Official Registered Office Address</span>
+              <span class="grievance-value">
+                GWU Technologies<br>
+                1/151A, Veerapandi Road, Chinnathadagam, Coimbatore, Tamil Nadu - 641108.
+              </span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">MSME Registration</span>
+              <span class="grievance-value" style="color:var(--red)">UDYAM-TN-03-0309835</span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">GSTIN</span>
+              <span class="grievance-value" style="color:var(--red)">33AEIPI4136F1ZV</span>
+            </div>
+            <div class="grievance-item">
+              <span class="grievance-label">Grievance Resolution SLA</span>
+              <span class="grievance-value">Acknowledgment &le; 48 hours · Resolution &le; 30 days</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 13 -->
+      <section id="policy-updates" class="legal-section">
+        <span class="section-badge">SECTION 13</span>
+        <h2>13. Updates to this Privacy Policy</h2>
+        <p>
+          GWU Technologies reserves the right to amend, update, or revise this Privacy Policy periodically to reflect technological enhancements, operational changes, evolving features in our AI Inspector and WhatsApp automation systems, or updates in statutory jurisprudence.
+        </p>
+        <p>
+          Whenever amendments are published, the "Last Updated" date at the top of this document will be revised accordingly. Material revisions will be prominently highlighted on our website or communicated directly to registered clients prior to the changes taking effect. We encourage visitors to review this policy periodically to stay informed about our data protection commitments.
+        </p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- FLOATING BACK TO TOP BUTTON -->
+<button type="button" class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  ↑
+</button>
+
+<!-- TOAST NOTIFICATION -->
+<div class="copy-toast" id="copyToast" role="status" aria-live="polite">
+  <span>✓ Link copied to clipboard!</span>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  // ── TABLE OF CONTENTS SCROLLSPY ──────────────────────────────────────────
+  const sections = document.querySelectorAll('.legal-section');
+  const tocLinks = document.querySelectorAll('.legal-toc-link');
+
+  function updateActiveToc() {
+    let currentId = '';
+    const scrollPos = window.scrollY + 140;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    if (currentId) {
+      tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+      });
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveToc, { passive: true });
+  updateActiveToc();
+
+  // ── SMOOTH SCROLL FOR TOC LINKS ──────────────────────────────────────────
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.startsWith('#')) {
+        e.preventDefault();
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, null, targetId);
+        }
+      }
+    });
+  });
+
+  // ── LIVE TOC SEARCH FILTER ───────────────────────────────────────────────
+  const searchInput = document.getElementById('legalSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      tocLinks.forEach(link => {
+        const text = link.textContent.toLowerCase();
+        const li = link.closest('li');
+        if (li) {
+          li.style.display = text.includes(query) ? '' : 'none';
+        }
+      });
+    });
+  }
+
+  // ── BACK TO TOP BUTTON ───────────────────────────────────────────────────
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── COPY LINK TO CLIPBOARD ───────────────────────────────────────────────
+  function copyLegalLink() {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showCopyToast();
+      }).catch(() => {
+        fallbackCopy();
+      });
+    } else {
+      fallbackCopy();
+    }
+  }
+
+  function fallbackCopy() {
+    const dummy = document.createElement('input');
+    document.body.appendChild(dummy);
+    dummy.value = window.location.href;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    showCopyToast();
+  }
+
+  function showCopyToast() {
+    const toast = document.getElementById('copyToast');
+    if (toast) {
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+  }
+</script>
+{% endblock %}
