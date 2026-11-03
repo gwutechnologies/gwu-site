@@ -73,6 +73,11 @@ def init_db():
     c.execute('SELECT COUNT(*) FROM news')
     if c.fetchone()[0] == 0:
         seed = [
+            ('GWU Technologies Selected as iTNT PathFinder Incubated Startup',
+             'itnt-pathfinder-incubation',
+             'Officially incubated under Tamil Nadu\'s premier deep-tech innovation hub — iTNT PathFinder, accelerating our cutting-edge AI inspection and vision platforms.',
+             '<p>GWU Technologies is proud to announce its selection as an official <strong>iTNT PathFinder Incubated Startup</strong>.</p><p>Supported by <strong>iTNT Hub</strong> (Tamil Nadu Technology Hub) — an initiative by the Information Technology and Digital Services Department, Government of Tamil Nadu — the PathFinder incubation programme provides world-class mentorship, deep-tech research infrastructure, and high-impact ecosystem access to accelerate next-generation startups.</p><h3>Key Highlights:</h3><ul><li>Selected under the prestigious iTNT PathFinder deep-tech cohort</li><li>Accelerating proprietary AI models across Manufacturing, Agriculture, Healthcare, and Surveillance</li><li>Deep technical mentorship and institutional collaboration</li><li>Complementing our foundational incubation at SRIT SISH Incubation Centre, Coimbatore</li></ul><p>This milestone reinforces our commitment to building dependable, human-in-the-loop industrial artificial intelligence from Tamil Nadu for the world.</p>',
+             'Incubation', '💡', 'red', 1, '2026-02-18 10:00:00', '2026-02-18 10:00:00'),
             ('GWU Technologies Achieves Udyam MSME Registration',
              'udyam-msme-registration',
              'Officially recognised as a Micro Enterprise (UDYAM-TN-03-0309835) under India\'s MSME framework, opening access to government schemes.',
