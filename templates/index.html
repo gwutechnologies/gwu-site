@@ -17,7 +17,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>iTNT PathFinder Incubated Startup · Registered MSME · UDYAM-TN-03-0309835 · GSTIN: 33AEIPI4136F1ZV</div>
     <h1>Intelligent Vision.<br><em>Powered by AI.</em></h1>
-    <p class="hero-desc">GWU Technologies delivers human-in-the-loop AI inspection systems, machine vision accessories,
+    <p class="hero-desc">GWU Technologies delivers human-in-the-loop AI inspection systems, enterprise RAG applications,
       and bespoke software solutions that transform industries.</p>
     <div class="hero-actions">
       <a href="#products" class="btn-primary"><span>Explore AI Inspector</span><span>→</span></a>
@@ -426,70 +426,90 @@
       <div class="pl-progress"><span class="pl-progress-fill"></span></div>
     </div>
     <div class="products-layout">
+      <!-- FLAGSHIP PRODUCT: AI INSPECTOR -->
       <div class="product-main reveal">
-        <div class="product-badge">⚡ Flagship Product</div>
-        <h3 class="product-main-title">AI Inspector</h3>
-        <p class="product-main-desc">The first self-serve AI inspection platform where industrial users train defect
-          detection models, validate in real-time, and deploy — without writing code.</p>
-        <div class="product-features">
-          <div class="feature-item">
-            <div class="feature-check">✓</div><span>Train custom models with your own labelled images</span>
-          </div>
-          <div class="feature-item">
-            <div class="feature-check">✓</div><span>Real-time live test on production line feeds</span>
-          </div>
-          <div class="feature-item">
-            <div class="feature-check">✓</div><span>One-click model deployment to edge devices</span>
-          </div>
-          <div class="feature-item">
-            <div class="feature-check">✓</div><span>Continuously improve accuracy with feedback loops</span>
-          </div>
-          <div class="feature-item">
-            <div class="feature-check">✓</div><span>Exportable reports and inspection analytics</span>
-          </div>
-        </div>
-        <div class="hitl-callout">
-          <div class="hitl-icon">🔄</div>
-          <div class="hitl-text">
-            <h4>Human-in-the-Loop Advantage</h4>
-            <p>Operators continuously refine model decisions — combining AI speed with human judgement.</p>
-          </div>
-        </div>
-        <div class="hitl-hud js-anim" aria-hidden="true">
-          <div class="hh-head"><span class="hh-head-dot"></span>HUMAN-IN-THE-LOOP · CONTINUOUS LEARNING</div>
-          <div class="hh-flow">
-            <div class="hh-stage hh-ai">
-              <div class="hh-frame">
-                <span class="hh-part"></span>
-                <span class="hh-scan"></span>
-                <span class="hh-box"></span>
+        <div class="product-main-grid">
+          <div class="pmg-info">
+            <div class="product-badge">⚡ Flagship Platform</div>
+            <h3 class="product-main-title">AI Inspector</h3>
+            <p class="product-main-desc">The first self-serve AI inspection platform where industrial users train defect
+              detection models, validate in real-time, and deploy — without writing code.</p>
+            <div class="product-features">
+              <div class="feature-item">
+                <div class="feature-check">✓</div><span>Train custom models with your own labelled images</span>
               </div>
-              <div class="hh-caption">AI PREDICTION</div>
-              <div class="hh-verdict">OK <b>96%</b></div>
-            </div>
-            <div class="hh-arrow"></div>
-            <div class="hh-stage hh-human">
-              <div class="hh-op">
-                <span class="hh-op-ring"></span>
-                <span class="hh-op-icon">🧑‍🔧</span>
+              <div class="feature-item">
+                <div class="feature-check">✓</div><span>Real-time live test on production line feeds</span>
               </div>
-              <div class="hh-caption">HUMAN REVIEW</div>
-              <div class="hh-stamp">APPROVED</div>
+              <div class="feature-item">
+                <div class="feature-check">✓</div><span>One-click model deployment to edge devices</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-check">✓</div><span>Continuously improve accuracy with feedback loops</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-check">✓</div><span>Exportable reports and inspection analytics</span>
+              </div>
             </div>
-            <div class="hh-arrow"></div>
-            <div class="hh-stage hh-conf">
-              <div class="hh-caption">MODEL CONFIDENCE</div>
-              <div class="hh-conf-num"></div>
-              <div class="hh-conf-bar"><span></span></div>
+            <div class="hitl-callout">
+              <div class="hitl-icon">🔄</div>
+              <div class="hitl-text">
+                <h4>Human-in-the-Loop Advantage</h4>
+                <p>Operators continuously refine model decisions — combining AI speed with human judgement.</p>
+              </div>
             </div>
           </div>
-          <div class="hh-status"><span>◍ INSPECTION SAVED — INITIATING NEXT INSPECTION</span></div>
+          
+          <div class="pmg-hud-wrap">
+            <div class="hitl-hud js-anim" aria-hidden="true">
+              <div class="hh-head"><span class="hh-head-dot"></span>HUMAN-IN-THE-LOOP · CONTINUOUS LEARNING</div>
+              <div class="hh-flow">
+                <div class="hh-stage hh-ai">
+                  <div class="hh-frame">
+                    <span class="hh-part"></span>
+                    <span class="hh-scan"></span>
+                    <span class="hh-box"></span>
+                  </div>
+                  <div class="hh-caption">AI PREDICTION</div>
+                  <div class="hh-verdict">OK <b>96%</b></div>
+                </div>
+                <div class="hh-arrow"></div>
+                <div class="hh-stage hh-human">
+                  <div class="hh-op">
+                    <span class="hh-op-ring"></span>
+                    <span class="hh-op-icon">🧑‍🔧</span>
+                  </div>
+                  <div class="hh-caption">HUMAN REVIEW</div>
+                  <div class="hh-stamp">APPROVED</div>
+                </div>
+                <div class="hh-arrow"></div>
+                <div class="hh-stage hh-conf">
+                  <div class="hh-caption">MODEL CONFIDENCE</div>
+                  <div class="hh-conf-num"></div>
+                  <div class="hh-conf-bar"><span></span></div>
+                </div>
+              </div>
+              <div class="hh-status"><span>◍ INSPECTION SAVED — INITIATING NEXT INSPECTION</span></div>
+            </div>
+            <a href="#contact" class="btn-primary" style="justify-content:center;margin-top:0.5rem"><span>Request AI Inspector Demo</span><span>→</span></a>
+          </div>
         </div>
       </div>
-      <div class="product-side">
+
+      <!-- SUITE HEADER -->
+      <div class="products-suite-header reveal">
+        <span class="psh-badge">COMPREHENSIVE SUITE</span>
+        <h3>Specialized AI &amp; Desktop Software Solutions</h3>
+      </div>
+
+      <!-- 3 COMPANION PRODUCTS IN 3 EQUAL COLUMNS -->
+      <div class="products-suite-grid">
         <!-- PRODUCT 2: RAG APPLICATION -->
-        <div class="product-side-card reveal reveal-delay-1">
-          <div class="product-card-badge">🧠 GENERATIVE AI</div>
+        <div class="product-suite-card reveal reveal-delay-1">
+          <div class="pbc-header">
+            <div class="product-card-badge">🧠 GENERATIVE AI</div>
+            <div class="pbc-icon">📂</div>
+          </div>
           <div class="product-svg-wrap rag-visual js-anim" aria-hidden="true">
             <svg viewBox="0 0 200 100" class="product-card-svg" fill="none">
               <rect class="rag-doc" x="20" y="20" width="34" height="46" rx="4" stroke="rgba(255, 154, 0, 0.6)" stroke-width="1.5" fill="rgba(255, 154, 0, 0.05)"/>
@@ -511,18 +531,24 @@
               <line x1="154" y1="56" x2="173" y2="64" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
             </svg>
           </div>
-          <h3 class="product-side-title">RAG Application</h3>
-          <p class="product-side-text">Enterprise Retrieval-Augmented Generation systems. Securely connect your proprietary technical manuals, ERP records, and internal knowledge bases to hallucination-free, private LLMs.</p>
-          <div class="product-mini-tags">
-            <span class="pm-tag">Semantic Search</span>
-            <span class="pm-tag">Private On-Premise</span>
-            <span class="pm-tag">Role-Based RBAC</span>
-          </div>
+          <h3 class="pbc-title">RAG Application</h3>
+          <p class="pbc-text">
+            Enterprise Retrieval-Augmented Generation systems. Securely connect your proprietary technical manuals, ERP records, and internal knowledge bases to hallucination-free, private LLMs.
+          </p>
+          <ul class="pbc-features">
+            <li><span>✓</span> Semantic vector search across private enterprise documents</li>
+            <li><span>✓</span> 100% on-premise &amp; sovereign private cloud deployment</li>
+            <li><span>✓</span> Strict role-based access control (RBAC) &amp; audit trails</li>
+          </ul>
+          <a href="#contact" class="pbc-cta">Explore RAG Systems <span>→</span></a>
         </div>
 
         <!-- PRODUCT 3: CUSTOMISED SOFTWARE DESKTOP SOLUTIONS -->
-        <div class="product-side-card reveal reveal-delay-2">
-          <div class="product-card-badge">⚡ INDUSTRIAL DESKTOP</div>
+        <div class="product-suite-card reveal reveal-delay-2">
+          <div class="pbc-header">
+            <div class="product-card-badge">⚡ INDUSTRIAL DESKTOP</div>
+            <div class="pbc-icon">🖥️</div>
+          </div>
           <div class="product-svg-wrap desktop-visual js-anim" aria-hidden="true">
             <svg viewBox="0 0 200 100" class="product-card-svg" fill="none">
               <rect class="desk-monitor" x="25" y="14" width="115" height="66" rx="5" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.8" fill="rgba(0,0,0,0.35)"/>
@@ -548,73 +574,58 @@
               <circle cx="165" cy="62" r="2" fill="rgba(255,255,255,0.3)"/>
             </svg>
           </div>
-          <h3 class="product-side-title">Customised Software Desktop Solutions</h3>
-          <p class="product-side-text">High-performance, ultra-low-latency native desktop software designed for mission-critical industrial control, high-speed camera acquisition, offline inspection, and bespoke manufacturing workflows.</p>
-          <div class="product-mini-tags">
-            <span class="pm-tag">Native C++ / Python</span>
-            <span class="pm-tag">100% Offline Reliable</span>
-            <span class="pm-tag">Hardware I/O &amp; PLC</span>
+          <h3 class="pbc-title">Customised Software Desktop Solutions</h3>
+          <p class="pbc-text">
+            High-performance, ultra-low-latency native desktop software designed for mission-critical industrial control, high-speed camera acquisition, offline inspection, and bespoke manufacturing workflows.
+          </p>
+          <ul class="pbc-features">
+            <li><span>✓</span> Direct camera &amp; hardware I/O interfacing (GigE, USB3, PLC)</li>
+            <li><span>✓</span> 100% offline-first reliability with zero latency</li>
+            <li><span>✓</span> Industrial native frameworks (C++, Python, Qt)</li>
+          </ul>
+          <a href="#contact" class="pbc-cta">Request Desktop Software <span>→</span></a>
+        </div>
+
+        <!-- PRODUCT 4: MASTERCLASS ON AI -->
+        <div class="product-suite-card reveal reveal-delay-3">
+          <div class="pbc-header">
+            <div class="product-card-badge">🎓 HANDS-ON ACADEMY</div>
+            <div class="pbc-icon">💡</div>
           </div>
+          <div class="product-svg-wrap masterclass-visual js-anim" aria-hidden="true">
+            <svg viewBox="0 0 200 100" class="product-card-svg" fill="none">
+              <rect x="25" y="16" width="150" height="68" rx="6" stroke="rgba(255, 154, 0, 0.35)" stroke-width="1.5" fill="rgba(0,0,0,0.3)"/>
+              <path d="M25 30 H175" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <circle cx="35" cy="23" r="2" fill="var(--red)"/>
+              <circle cx="42" cy="23" r="2" fill="rgba(255,255,255,0.4)"/>
+              <circle cx="49" cy="23" r="2" fill="rgba(255,255,255,0.4)"/>
+              <text x="60" y="25" fill="rgba(255,255,255,0.6)" font-family="'Orbitron', monospace" font-size="7">GWU AI ACADEMY // PRODUCTION LAB</text>
+              
+              <path d="M40 50 L52 40 L64 56 L76 44 L88 52" stroke="var(--red-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="52" cy="40" r="2.5" fill="var(--red)"/>
+              <circle cx="64" cy="56" r="2.5" fill="var(--red)"/>
+              <circle cx="76" cy="44" r="2.5" fill="var(--red)"/>
+              
+              <rect x="104" y="38" width="60" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+              <rect x="104" y="38" width="46" height="8" rx="4" fill="var(--red)"/>
+              <rect x="104" y="52" width="60" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+              <rect x="104" y="52" width="54" height="8" rx="4" fill="var(--red-light)"/>
+              <rect x="104" y="66" width="60" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+              <rect x="104" y="66" width="58" height="8" rx="4" fill="#21C97A"/>
+            </svg>
+          </div>
+          <h3 class="pbc-title">Masterclass on AI</h3>
+          <p class="pbc-text">
+            Intensive, industry-grade AI masterclasses and corporate upskilling programs. We train engineers, enterprise teams, and institutions on production Computer Vision, Deep Learning, and Generative AI workflows using real-world industrial datasets.
+          </p>
+          <ul class="pbc-features">
+            <li><span>✓</span> Computer Vision &amp; Deep Learning from Scratch to Production</li>
+            <li><span>✓</span> Edge Deployment on NVIDIA Jetson &amp; Embedded Hardware</li>
+            <li><span>✓</span> Hands-on Capstone Projects with Real Industrial Imagery</li>
+          </ul>
+          <a href="#contact" class="pbc-cta">Enroll / Request Syllabus <span>→</span></a>
         </div>
       </div>
-    </div>
-
-    <!-- PRODUCTS BOTTOM ROW (3 Cards Across) -->
-    <div class="products-bottom-grid">
-      <!-- PRODUCT 4: MASTERCLASS ON AI -->
-      <div class="product-bottom-card reveal reveal-delay-1">
-        <div class="pbc-header">
-          <div class="product-card-badge">🎓 HANDS-ON ACADEMY</div>
-          <div class="pbc-icon">💡</div>
-        </div>
-        <h3 class="pbc-title">Masterclass on AI</h3>
-        <p class="pbc-text">
-          Intensive, industry-grade AI masterclasses and corporate upskilling programs. We train engineers, enterprise teams, and institutions on production Computer Vision, Deep Learning, and Generative AI workflows using real-world industrial datasets.
-        </p>
-        <ul class="pbc-features">
-          <li><span>✓</span> Computer Vision &amp; Deep Learning from Scratch to Production</li>
-          <li><span>✓</span> Edge Deployment on NVIDIA Jetson &amp; Embedded Hardware</li>
-          <li><span>✓</span> Hands-on Capstone Projects with Real Industrial Imagery</li>
-        </ul>
-        <a href="#contact" class="pbc-cta">Enroll / Request Syllabus <span>→</span></a>
-      </div>
-
-      <!-- PRODUCT 5: MACHINE VISION ACCESSORIES -->
-      <div class="product-bottom-card reveal reveal-delay-2">
-        <div class="pbc-header">
-          <div class="product-card-badge">🔬 PRECISION OPTICS</div>
-          <div class="pbc-icon">📷</div>
-        </div>
-        <h3 class="pbc-title">Machine Vision Accessories</h3>
-        <p class="pbc-text">
-          Precision industrial cameras, telecentric lenses, high-CRI strobe lighting rigs, and vibration-damped mounting fixtures calibrated for high-throughput AI Inspector production lines.
-        </p>
-        <ul class="pbc-features">
-          <li><span>✓</span> Calibrated Industrial CMOS Cameras (GigE / USB 3.0)</li>
-          <li><span>✓</span> Custom Ring, Bar &amp; Dome Strobe Illumination Systems</li>
-          <li><span>✓</span> Turnkey Production-Line Fixtures &amp; Trigger Sensors</li>
-        </ul>
-        <a href="#contact" class="pbc-cta">Explore Optics &amp; Lighting <span>→</span></a>
-      </div>
-
-      <!-- PRODUCT 6: RETAIL TECHNOLOGY STORE -->
-      <div class="product-bottom-card reveal reveal-delay-3">
-        <div class="pbc-header">
-          <div class="product-card-badge">🛒 AUTHORIZED RETAIL</div>
-          <div class="pbc-icon">💻</div>
-        </div>
-        <h3 class="pbc-title">Retail Technology Store</h3>
-        <p class="pbc-text">
-          Authorized enterprise retail and procurement of high-performance computing workstations, edge inference boxes, commercial displays, peripherals, audio-visual systems, and telecom accessories.
-        </p>
-        <ul class="pbc-features">
-          <li><span>✓</span> GPU-Powered Edge AI Workstations &amp; Mini-PCs</li>
-          <li><span>✓</span> Industrial Peripherals, Displays &amp; AV Equipment</li>
-          <li><span>✓</span> Genuine Manufacturer Warranty &amp; Enterprise Procurement</li>
-        </ul>
-        <a href="#contact" class="pbc-cta">Browse Hardware Catalog <span>→</span></a>
-      </div>
-    </div>
     </div>
   </div>
 </section>
@@ -745,7 +756,7 @@
     <div class="contact-grid">
       <div>
         <p style="color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:2rem" class="reveal">Whether you're
-          exploring AI Inspector, seeking machine vision accessories, or looking for a software partner — we'd love to
+          exploring AI Inspector, seeking enterprise RAG solutions, or looking for a custom software partner — we'd love to
           hear from you.</p>
         <div class="contact-info-items">
           <div class="contact-info-item reveal reveal-delay-1">
@@ -768,7 +779,7 @@
             <div class="contact-info-icon">📱</div>
             <div class="contact-info-text">
               <h4>Phone</h4>
-              <p>+91 96778 17992</p>
+              <p>+91 79044 62683</p>
             </div>
           </div>
           <div class="contact-info-item reveal reveal-delay-4">
@@ -803,7 +814,6 @@
               <option>AI in Manufacturing Solutions</option>
               <option>AI in Healthcare Solutions</option>
               <option>AI-based Surveillance System</option>
-              <option>Machine Vision Accessories</option>
               <option>Software Development</option>
               <option>General Enquiry</option>
             </select>

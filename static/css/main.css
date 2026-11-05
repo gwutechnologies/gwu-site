@@ -1276,10 +1276,8 @@ nav.scrolled .nav-links a:hover {
 }
 
 .products-layout {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 2rem;
-  margin-top: 4rem;
+  display: block;
+  margin-top: 3.5rem;
   position: relative;
   z-index: 1
 }
@@ -1959,6 +1957,83 @@ nav.scrolled .nav-links a:hover {
   padding: 0.2rem 0.6rem;
   border-radius: 6px;
   letter-spacing: 0.02em;
+}
+
+/* Flagship Card Layout */
+.product-main-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.pmg-hud-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Products Suite Header & Grid */
+.products-suite-header {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.psh-badge {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.12em;
+  background: rgba(255, 154, 0, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 154, 0, 0.25);
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.products-suite-header h3 {
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--white);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.products-suite-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.product-suite-card {
+  background: var(--glass-dark-bg);
+  border: 1px solid var(--glass-dark-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 2.25rem 2rem;
+  box-shadow: var(--neu-shadow-dark);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--t-micro) var(--ease-soft), background var(--t-micro) var(--ease-soft), box-shadow var(--t-micro) var(--ease-soft), border-color var(--t-micro) var(--ease-soft);
+}
+
+.product-suite-card:hover {
+  border-color: rgba(255, 154, 0, 0.35);
+  background: rgba(255, 154, 0, 0.05);
+  transform: translateY(-6px);
+  box-shadow: var(--neu-shadow-dark), 0 0 24px rgba(255, 154, 0, 0.08);
 }
 
 /* Products bottom row: 3 cards across */
@@ -5239,6 +5314,11 @@ footer {
   .domains-grid {
     grid-template-columns: repeat(2, 1fr)
   }
+  .product-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem
+  }
+  .products-suite-grid,
   .products-bottom-grid {
     grid-template-columns: repeat(2, 1fr)
   }
@@ -5301,6 +5381,11 @@ footer {
     grid-template-columns: 1fr
   }
 
+  .product-main {
+    padding: 2rem 1.5rem
+  }
+
+  .products-suite-grid,
   .products-bottom-grid {
     grid-template-columns: 1fr
   }
