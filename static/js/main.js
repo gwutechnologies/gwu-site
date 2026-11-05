@@ -21,7 +21,7 @@ if (cursor && follower) {
     follower.style.left = followerX + 'px'; follower.style.top = followerY + 'px';
     requestAnimationFrame(animateFollower);
   })();
-  document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+  document.querySelectorAll('a, button, input, textarea, select, .modal-subproject-card, .modal-close-btn').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
       cursor.style.background = 'rgba(255,154,0,0.5)';
@@ -148,3 +148,122 @@ if (statInspected && statOk && statNok) {
 const style = document.createElement('style');
 style.textContent = '@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}';
 document.head.appendChild(style);
+
+// ── NUMERIC COUNTER ANIMATION ON VIEWPORT ENTRY ─────────────────────────────────
+const statElements = document.querySelectorAll('.hero-stats .stat-number');
+if (statElements.length && 'IntersectionObserver' in window) {
+  const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const rawText = el.textContent.trim();
+        const numMatch = rawText.match(/(\d+)/);
+        if (numMatch) {
+          const targetNum = parseInt(numMatch[1], 10);
+          const spanEl = el.querySelector('span');
+          const suffix = spanEl ? spanEl.textContent : rawText.replace(numMatch[1], '');
+          const duration = 1400;
+          const startTime = performance.now();
+
+          function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(easeOut * targetNum);
+            el.innerHTML = current + '<span>' + suffix + '</span>';
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              el.innerHTML = targetNum + '<span>' + suffix + '</span>';
+            }
+          }
+          requestAnimationFrame(step);
+        }
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statElements.forEach(el => counterObserver.observe(el));
+}
+
+// ── SPECIALIZED SUITE MODAL POPUPS (RAG, Desktop Software, Masterclass) ──────
+(function initSuiteModals() {
+  const triggers = document.querySelectorAll('.js-modal-trigger');
+  const backdrops = document.querySelectorAll('.modal-backdrop');
+
+  if (!triggers.length || !backdrops.length) return;
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('is-active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.classList.add('is-active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Trigger buttons on product cards
+  triggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const modalId = btn.getAttribute('data-modal');
+      openModal(modalId);
+    });
+  });
+
+  // Close buttons and backdrop click
+  backdrops.forEach(backdrop => {
+    backdrop.addEventListener('click', (e) => {
+      // Close if clicked directly on backdrop (outside modal-window) or on close button
+      if (e.target === backdrop || e.target.closest('.modal-close-btn')) {
+        closeModal(backdrop);
+      }
+    });
+  });
+
+  // Escape key closes active modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      const activeModal = document.querySelector('.modal-backdrop.is-active');
+      if (activeModal) closeModal(activeModal);
+    }
+  });
+
+  // Inquire buttons inside modals: pre-select dropdown & smooth scroll to contact form
+  document.querySelectorAll('.js-modal-inquire').forEach(inquireBtn => {
+    inquireBtn.addEventListener('click', () => {
+      const interestVal = inquireBtn.getAttribute('data-select-interest');
+      const activeModal = inquireBtn.closest('.modal-backdrop');
+      if (activeModal) closeModal(activeModal);
+
+      // Pre-select option in contact form
+      const selectEl = document.querySelector('select[name="interest"]');
+      if (selectEl && interestVal) {
+        for (let i = 0; i < selectEl.options.length; i++) {
+          if (selectEl.options[i].text.toLowerCase().includes(interestVal.toLowerCase()) ||
+              interestVal.toLowerCase().includes(selectEl.options[i].text.toLowerCase())) {
+            selectEl.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      // Smooth scroll to contact section
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          const firstInput = contactSection.querySelector('input[name="first_name"]');
+          if (firstInput) firstInput.focus();
+        }, 600);
+      }
+    });
+  });
+})();

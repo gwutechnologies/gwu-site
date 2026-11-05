@@ -53,7 +53,7 @@ body {
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 2147483647;
   transition: transform .15s ease, background .2s;
   transform: translate(-50%, -50%)
 }
@@ -67,7 +67,7 @@ body {
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 99998;
+  z-index: 2147483646;
   transition: transform .4s ease, opacity .3s;
   transform: translate(-50%, -50%);
   opacity: .5
@@ -6229,6 +6229,715 @@ footer {
   .legal-actions-bar {
     width: 100%;
     justify-content: space-between;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   HIGH-FIDELITY ANIMATIONS & TACTILE MICRO-INTERACTIONS ENGINE
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Fluid Scroll Reveal Upgrades ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── 2. Hero Inspector Scene & Conveyor Enhancements ── */
+.inspector-scene {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+
+.inspector-scene:hover {
+  border-color: rgba(255, 154, 0, 0.35);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.8), 0 0 28px -6px rgba(255, 154, 0, 0.25);
+}
+
+.scan-beam {
+  position: relative;
+}
+
+.scan-beam::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 26px;
+  height: 96px;
+  background: radial-gradient(ellipse at center top, rgba(255, 154, 0, 0.45) 0%, transparent 70%);
+  pointer-events: none;
+  animation: scanBeamSweep 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes scanBeamSweep {
+  0% { opacity: 0.3; transform: scaleX(0.8); }
+  100% { opacity: 0.9; transform: scaleX(1.3); }
+}
+
+.part {
+  transition: transform 0.2s ease;
+}
+
+.part-badge {
+  box-shadow: 0 0 10px currentColor;
+}
+
+/* ── 3. Marquee Infinite Ticker Smoothness ── */
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  transition: color 0.2s ease;
+}
+
+.marquee-item:hover {
+  color: #FFFFFF;
+}
+
+/* ── 4. Major Domains Animated SVGs ── */
+/* Domain 1: Smart Agritech */
+.anim-run .agri-laser {
+  animation: agriLaserSweep 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+@keyframes agriLaserSweep {
+  0% { transform: translateY(-10px); opacity: 0.3; stroke: var(--red); }
+  50% { opacity: 1; stroke: #FFAA33; }
+  100% { transform: translateY(14px); opacity: 0.3; stroke: var(--red); }
+}
+
+.anim-run .agri-leaf {
+  animation: agriLeafBreathe 3.5s ease-in-out infinite alternate;
+  transform-origin: 26px 44px;
+}
+@keyframes agriLeafBreathe {
+  0% { transform: scale(1); stroke-width: 2px; }
+  100% { transform: scale(1.03) rotate(1deg); stroke-width: 2.2px; stroke: #4be3a0; }
+}
+
+.anim-run .agri-grid {
+  animation: agriGridOffset 6s linear infinite;
+}
+@keyframes agriGridOffset {
+  to { stroke-dashoffset: -16px; }
+}
+
+.anim-run .agri-dot {
+  animation: agriDotPing 1.8s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes agriDotPing {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.5); opacity: 1; fill: #FFAA33; }
+}
+
+/* Domain 2: Manufacturing AI */
+.anim-run .mfg-arm {
+  animation: mfgArmArticulate 5s ease-in-out infinite alternate;
+  transform-origin: 42px 42px;
+}
+@keyframes mfgArmArticulate {
+  0% { transform: rotate(0deg); }
+  35% { transform: rotate(-5deg); }
+  70% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.anim-run .mfg-part {
+  animation: mfgPartGlide 4s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+@keyframes mfgPartGlide {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+  100% { transform: translateX(0); }
+}
+
+.anim-run .mfg-beam {
+  animation: mfgBeamStrobe 2.2s ease-in-out infinite alternate;
+  transform-origin: 22px 30px;
+}
+@keyframes mfgBeamStrobe {
+  0%, 100% { opacity: 0.2; transform: scaleY(0.9); }
+  50% { opacity: 0.95; transform: scaleY(1.1); fill: rgba(255, 154, 0, 0.55); }
+}
+
+.anim-run .mfg-bbox {
+  animation: mfgBboxLock 3s ease-in-out infinite;
+  transform-origin: 20px 37px;
+}
+@keyframes mfgBboxLock {
+  0%, 100% { stroke: var(--red); stroke-dashoffset: 0; transform: scale(1); }
+  50% { stroke: #21C97A; stroke-dashoffset: 12px; transform: scale(1.08); }
+}
+
+/* Domain 3: Clinical Healthcare Intelligence */
+.anim-run .hc-ecg {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: hcEcgDraw 2.4s linear infinite;
+}
+@keyframes hcEcgDraw {
+  0% { stroke-dashoffset: 60; stroke: var(--red); }
+  50% { stroke: #21C97A; }
+  100% { stroke-dashoffset: -60; stroke: var(--red); }
+}
+
+.anim-run .hc-scan-ring {
+  animation: hcRingSpin 8s linear infinite;
+  transform-origin: 26px 26px;
+}
+@keyframes hcRingSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.anim-run .hc-pulse-node {
+  animation: hcNodePulse 1.2s ease-in-out infinite;
+  transform-origin: 25px 36px;
+}
+@keyframes hcNodePulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.7); opacity: 1; fill: #21C97A; }
+}
+
+.anim-run .hc-frame {
+  animation: hcFrameBreathe 4s ease-in-out infinite alternate;
+}
+@keyframes hcFrameBreathe {
+  0% { stroke-opacity: 0.4; }
+  100% { stroke-opacity: 0.9; stroke: rgba(255, 154, 0, 0.6); }
+}
+
+/* Domain 4: AI Surveillance System */
+.anim-run .surv-housing,
+.anim-run .surv-bracket {
+  animation: survPanCamera 6s ease-in-out infinite alternate;
+  transform-origin: 16px 23px;
+}
+@keyframes survPanCamera {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(7deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+.anim-run .surv-fov {
+  animation: survFovSweep 4s ease-in-out infinite alternate;
+  transform-origin: 42px 23px;
+}
+@keyframes survFovSweep {
+  0% { opacity: 0.25; transform: rotate(-10deg) scale(0.95); }
+  50% { opacity: 0.75; fill: rgba(255, 154, 0, 0.4); }
+  100% { opacity: 0.35; transform: rotate(14deg) scale(1.05); }
+}
+
+.anim-run .surv-sensor {
+  animation: survSensorBlink 1.4s steps(1) infinite;
+}
+@keyframes survSensorBlink {
+  0%, 100% { fill: var(--red); opacity: 1; }
+  50% { fill: #21C97A; opacity: 0.5; }
+}
+
+.anim-run .surv-target {
+  animation: survTargetTrack 2.6s ease-in-out infinite alternate;
+  transform-origin: 22px 41px;
+}
+@keyframes survTargetTrack {
+  0% { transform: scale(0.95); stroke: var(--red); }
+  100% { transform: scale(1.1); stroke: #21C97A; }
+}
+
+.anim-run .surv-dot {
+  animation: survDotPing 1.3s ease-in-out infinite;
+  transform-origin: 22px 41px;
+}
+@keyframes survDotPing {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
+
+/* ── 5. Product Suite Animated SVGs ── */
+/* Product 2: RAG Application */
+.anim-run .rag-stream {
+  stroke-dasharray: 6 4;
+  animation: ragStreamFlow 1.5s linear infinite;
+}
+@keyframes ragStreamFlow {
+  to { stroke-dashoffset: -20px; }
+}
+
+.anim-run .rag-vector-p {
+  animation: ragPacketTraverse 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes ragPacketTraverse {
+  0% { transform: translate(-30px, -4px); opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { transform: translate(55px, 6px); opacity: 0; }
+}
+
+.anim-run .rag-hub-ring {
+  animation: ragRingSpin 9s linear infinite;
+  transform-origin: 140px 50px;
+}
+@keyframes ragRingSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.anim-run .rag-hub-core {
+  animation: ragCorePulse 2.4s ease-in-out infinite alternate;
+  transform-origin: 140px 50px;
+}
+@keyframes ragCorePulse {
+  0% { transform: scale(0.95); fill: rgba(255, 154, 0, 0.1); }
+  100% { transform: scale(1.08); fill: rgba(255, 154, 0, 0.35); filter: drop-shadow(0 0 6px var(--red)); }
+}
+
+.anim-run .rag-node {
+  animation: ragNodeSignal 1.8s ease-in-out infinite alternate;
+}
+@keyframes ragNodeSignal {
+  0% { opacity: 0.4; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1.25); filter: drop-shadow(0 0 5px var(--red-light)); }
+}
+
+/* Product 3: Customised Desktop Solutions */
+.anim-run .desk-monitor {
+  animation: deskMonitorGlow 3.5s ease-in-out infinite alternate;
+}
+@keyframes deskMonitorGlow {
+  0% { stroke: rgba(255, 255, 255, 0.25); filter: drop-shadow(0 0 2px rgba(255, 154, 0, 0.1)); }
+  100% { stroke: rgba(255, 154, 0, 0.5); filter: drop-shadow(0 0 10px rgba(255, 154, 0, 0.25)); }
+}
+
+.anim-run .desktop-visual path[stroke="var(--red)"] {
+  stroke-dasharray: 80;
+  animation: deskWaveDraw 3s ease-in-out infinite alternate;
+}
+@keyframes deskWaveDraw {
+  0% { stroke-dashoffset: 40; }
+  100% { stroke-dashoffset: -40; }
+}
+
+.anim-run .desk-unit circle[fill="var(--red)"] {
+  animation: deskUnitLed 1s steps(1) infinite;
+}
+@keyframes deskUnitLed {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px var(--red)); }
+  50% { opacity: 0.3; }
+}
+
+/* Product 4: Masterclass on AI */
+.anim-run .masterclass-visual rect[fill="var(--red)"] {
+  animation: mcProgressA 4s ease-in-out infinite;
+  transform-origin: 104px 0;
+}
+@keyframes mcProgressA {
+  0% { width: 10px; }
+  60%, 100% { width: 46px; }
+}
+
+.anim-run .masterclass-visual rect[fill="var(--red-light)"] {
+  animation: mcProgressB 4s ease-in-out infinite 0.5s;
+  transform-origin: 104px 0;
+}
+@keyframes mcProgressB {
+  0% { width: 8px; }
+  65%, 100% { width: 54px; }
+}
+
+.anim-run .masterclass-visual rect[fill="#21C97A"] {
+  animation: mcProgressC 4s ease-in-out infinite 1s;
+  transform-origin: 104px 0;
+}
+@keyframes mcProgressC {
+  0% { width: 12px; }
+  70%, 100% { width: 58px; }
+}
+
+.anim-run .masterclass-visual circle[fill="var(--red)"] {
+  animation: mcDotPulse 1.5s ease-in-out infinite alternate;
+}
+@keyframes mcDotPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 1; filter: drop-shadow(0 0 5px var(--red)); }
+}
+
+/* ── 6. Tactile Interactive Card Elevations ── */
+.domain-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              background 0.35s ease;
+  will-change: transform;
+}
+
+.domain-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 154, 0, 0.35);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(255, 154, 0, 0.2);
+}
+
+.domain-card:hover .domain-icon-box {
+  transform: scale(1.08);
+  border-color: rgba(255, 154, 0, 0.45);
+}
+
+.domain-cta span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.domain-card:hover .domain-cta span {
+  transform: translateX(5px);
+}
+
+.product-suite-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  will-change: transform;
+}
+
+.product-suite-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 154, 0, 0.35);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(255, 154, 0, 0.2);
+}
+
+.pbc-cta span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.product-suite-card:hover .pbc-cta span {
+  transform: translateX(5px);
+}
+
+.about-incubation-showcase {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.about-incubation-showcase:hover {
+  border-color: rgba(255, 154, 0, 0.35);
+  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.6), 0 0 20px -6px rgba(255, 154, 0, 0.25);
+}
+
+.ais-logo-box {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ais-logo-box:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.customer-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.customer-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 154, 0, 0.35);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 20px -6px rgba(255, 154, 0, 0.2);
+}
+
+.service-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 154, 0, 0.35);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 20px -6px rgba(255, 154, 0, 0.2);
+}
+
+.btn-primary span:last-child {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.btn-primary:hover span:last-child {
+  transform: translateX(4px);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   POPUP MODAL DIALOGS (Tactile & High-Fidelity Subprojects Showcase)
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+button.pbc-cta {
+  background: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--red-light);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0 0;
+  margin-top: auto;
+  text-align: left;
+  transition: color 0.25s ease;
+}
+
+button.pbc-cta:hover {
+  color: var(--red);
+}
+
+button.pbc-cta:hover span {
+  transform: translateX(5px);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 7, 10, 0.84);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  cursor: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop *,
+.modal-window,
+.modal-window * {
+  cursor: none !important;
+}
+
+.modal-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-window {
+  background: #11141B;
+  border: 1px solid rgba(255, 154, 0, 0.32);
+  border-radius: 20px;
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.95), 0 0 35px -5px rgba(255, 154, 0, 0.25);
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.92) translateY(16px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.modal-backdrop.is-active .modal-window {
+  transform: scale(1) translateY(0);
+}
+
+.modal-header {
+  padding: 1.75rem 2rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 154, 0, 0.08), transparent);
+}
+
+.modal-badge {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+}
+
+.modal-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+}
+
+.modal-subtitle {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.55;
+  max-width: 720px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.modal-close-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  transform: rotate(90deg);
+  color: #0A0D14;
+}
+
+.modal-body {
+  padding: 1.75rem 2rem;
+  overflow-y: auto;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 154, 0, 0.3) rgba(255, 255, 255, 0.04);
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 154, 0, 0.3);
+  border-radius: 3px;
+}
+
+.modal-subprojects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.modal-subproject-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+}
+
+.modal-subproject-card:hover {
+  background: rgba(255, 154, 0, 0.06);
+  border-color: rgba(255, 154, 0, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -6px rgba(0,0,0,0.5), 0 0 16px -4px rgba(255, 154, 0, 0.2);
+}
+
+.msp-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.msp-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.45rem;
+  line-height: 1.3;
+}
+
+.msp-desc {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.msp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.msp-tag {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.62rem;
+  color: var(--red-light);
+  background: rgba(255, 154, 0, 0.08);
+  border: 1px solid rgba(255, 154, 0, 0.22);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.modal-footer {
+  padding: 1.25rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.modal-footer-info {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .modal-subprojects-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-window {
+    max-height: 94vh;
+  }
+  .modal-header, .modal-body, .modal-footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  .modal-close-btn {
+    top: 1.25rem;
+    right: 1.25rem;
   }
 }
 
